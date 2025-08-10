@@ -1,5 +1,5 @@
 import BaseModel from "react_oop/models/base_model";
-export default class WordFormModel extends BaseModel {
+export class WordFormModel extends BaseModel {
     constructor(data = {}) {
         super(data);
         this.word_id = data.word_id;

@@ -1,4 +1,4 @@
-export default class NumberUtil {
+export class NumberUtil {
     static tryParseInt(value) {
         if (value === undefined || value === null) {
             return undefined;

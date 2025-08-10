@@ -1,5 +1,5 @@
 import BaseModel from "react_oop/models/base_model";
-export default class WordMeaningModel extends BaseModel {
+export class WordMeaningModel extends BaseModel {
     constructor(data = {}) {
         super(data);
         this.word_id = data.word_id;

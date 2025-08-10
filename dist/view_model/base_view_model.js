@@ -1,7 +1,7 @@
 import { UILoadingCubit } from "react_oop/bloc/cubit";
 import LogUtil from "react_oop/utils/log/log_util";
 import { request as callApi } from "react_oop/api/base/base_api";
-export default class BaseViewModel {
+export class BaseViewModel {
     constructor() {
         this.loadingCubit = new UILoadingCubit();
     }

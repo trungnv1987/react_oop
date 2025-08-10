@@ -2,7 +2,7 @@
 import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect } from "react";
 import "react_oop/utils/exts";
-export default function BaseScreen({ children, viewModel, viewModelContext, dialogs, }) {
+export function BaseScreen({ children, viewModel, viewModelContext, dialogs, }) {
     useEffect(() => {
         viewModel.componentDidMount();
         return () => {

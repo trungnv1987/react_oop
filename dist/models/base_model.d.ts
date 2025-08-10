@@ -1,4 +1,4 @@
-export default abstract class BaseModel {
+export declare abstract class BaseModel {
     id?: number;
     created_at?: Date;
     updated_at?: Date;

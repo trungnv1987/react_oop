@@ -12,6 +12,6 @@ export declare abstract class UIGenericCubitBase<T> {
     abstract getClassName(): string;
 }
 declare function _UIGenericCubitComponent<T>({ children, cubit, className, ...props }: UIGenericCubitProps<T>): import("react/jsx-runtime").JSX.Element;
-declare const UIGenericCubit: typeof _UIGenericCubitComponent;
-export default UIGenericCubit;
+export declare const UIGenericCubit: typeof _UIGenericCubitComponent;
+export {};
 //# sourceMappingURL=ui_generic_cubit.d.ts.map

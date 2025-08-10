@@ -4,7 +4,7 @@ export var BuildEnv;
     BuildEnv["stag"] = "stag";
     BuildEnv["prod"] = "prod";
 })(BuildEnv || (BuildEnv = {}));
-class GlobalConfig {
+export class GlobalConfig {
     static get debugging() {
         if (isServer()) {
             return this.isDebugInServer();
@@ -53,7 +53,6 @@ GlobalConfig.isDebug = false;
 GlobalConfig.isDebugInServer = () => {
     return (process.env.NODE_ENV == "development" || process.env.NODE_ENV == "test");
 };
-export default GlobalConfig;
 function isServer() {
     return typeof window === "undefined";
 }

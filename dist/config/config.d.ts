@@ -3,7 +3,7 @@ export declare enum BuildEnv {
     stag = "stag",
     prod = "prod"
 }
-export default class GlobalConfig {
+export declare class GlobalConfig {
     static env: BuildEnv;
     static isDebug: boolean;
     static get debugging(): boolean;

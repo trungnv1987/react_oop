@@ -1,4 +1,4 @@
-export default class StorageUtils {
+export class StorageUtils {
     static getItem(key) {
         if (typeof localStorage !== "undefined") {
             return localStorage.getItem(key);

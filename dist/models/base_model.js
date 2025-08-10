@@ -1,4 +1,4 @@
-export default class BaseModel {
+export class BaseModel {
     constructor(data = {}) {
         this.id = data.id;
         this.created_at = data.created_at;

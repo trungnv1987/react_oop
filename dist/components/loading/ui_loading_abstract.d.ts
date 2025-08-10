@@ -10,5 +10,4 @@ export declare abstract class UILoadingBase extends Component<UILoadingProps> {
     constructor(props: UILoadingProps);
     render(): ReactNode;
 }
-export default UILoadingBase;
 //# sourceMappingURL=ui_loading_abstract.d.ts.map

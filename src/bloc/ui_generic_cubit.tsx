@@ -25,12 +25,15 @@ function _UIGenericCubitComponent<T>({
   ...props
 }: UIGenericCubitProps<T>) {
   return (
-    <div key={cubit.key} className={className} style={props.style} id={props.id}>
+    <div
+      key={cubit.key}
+      className={className}
+      style={props.style}
+      id={props.id}
+    >
       {children(cubit.value)}
     </div>
   );
 }
 
-const UIGenericCubit = _UIGenericCubitComponent;
-
-export UIGenericCubit;
+export const UIGenericCubit = _UIGenericCubitComponent;

@@ -1,4 +1,4 @@
-export default class NumberUtil {
+export declare class NumberUtil {
     static tryParseInt(value: any): number | undefined;
     static beautifyNumber({ value, minimumFractionDigits, }: {
         value: number | undefined;

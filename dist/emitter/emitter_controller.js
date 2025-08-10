@@ -1,5 +1,5 @@
 import Emitter from "./emitter";
-export default class EmitterController {
+export class EmitterController {
     constructor(key) {
         this.key = key;
     }

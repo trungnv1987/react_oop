@@ -6,7 +6,7 @@ interface _ApiRequestParam<T> {
 }
 interface _BaseViewModel {
 }
-export default class BaseViewModel implements _BaseViewModel {
+export declare class BaseViewModel implements _BaseViewModel {
     loadingCubit: UILoadingCubit;
     get loadingController(): UILoadingCubit;
     showLoading(): void;

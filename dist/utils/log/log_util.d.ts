@@ -1,4 +1,4 @@
-export default class LogUtil {
+export declare class LogUtil {
     static debug(message: string): void;
     static error(message: string): void;
     static info(message: string): void;

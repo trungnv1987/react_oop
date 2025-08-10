@@ -1,5 +1,5 @@
 import BaseModel from "react_oop/models/base_model";
-export default class WordModel extends BaseModel {
+export class WordModel extends BaseModel {
     get text_en() {
         return undefined;
     }

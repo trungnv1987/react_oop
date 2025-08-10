@@ -1,4 +1,4 @@
-export default class EmitterController<T> {
+export declare class EmitterController<T> {
     key: string;
     value?: T;
     constructor(key: string);

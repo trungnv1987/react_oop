@@ -1,5 +1,5 @@
 import mitt from "mitt";
-class Emitter {
+export class Emitter {
     static emit(event, data) {
         Emitter._emitter.emit(event, data);
     }
@@ -14,4 +14,3 @@ class Emitter {
     }
 }
 Emitter._emitter = mitt();
-export default Emitter;

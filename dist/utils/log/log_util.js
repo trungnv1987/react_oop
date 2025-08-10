@@ -1,4 +1,4 @@
-export default class LogUtil {
+export class LogUtil {
     static debug(message) {
         console.debug(message);
     }
