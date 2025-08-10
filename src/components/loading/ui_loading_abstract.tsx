@@ -1,26 +1,18 @@
-import { Component } from "react";
 import { UILoadingCubit } from "../../bloc/cubit";
 import { UIGenericCubit } from "../../bloc/ui_generic_cubit";
+import { UIComponentProps } from "../../enums/ui_enums";
 
-export interface UILoadingProps {
+export interface UILoadingProps extends UIComponentProps {
   controller: UILoadingCubit;
-  children?: JSX.Element;
 }
 
-export abstract class UILoadingBase extends Component<UILoadingProps> {
+export abstract class UILoadingBase extends UIGenericCubit<boolean> {
   protected controller: UILoadingCubit;
 
   abstract build(isLoading: boolean): JSX.Element;
   constructor(props: UILoadingProps) {
-    super(props);
-    this.controller = props.controller;
-  }
-
-  render(): JSX.Element {
-    return (
-      <UIGenericCubit cubit={this.controller}>
-        {(flag) => this.build(flag == true)}
-      </UIGenericCubit>
-    );
+    const { controller, ...rest } = props;
+    super({ ...rest, cubit: controller });
+    this.controller = controller;
   }
 }
