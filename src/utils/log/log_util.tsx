@@ -1,4 +1,4 @@
-export default class LogUtil {
+export class LogUtil {
   static debug(message: string) {
     console.debug(message);
   }
@@ -9,5 +9,5 @@ export default class LogUtil {
 
   static info(message: string) {
     console.info(message);
-}
+  }
 }

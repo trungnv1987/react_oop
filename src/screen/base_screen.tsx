@@ -11,7 +11,7 @@ export interface BaseScreenProps<VM extends BaseViewModel> {
   dialogs?: ReactNode[];
 }
 
-export default function BaseScreen<VM extends BaseViewModel>({
+export function BaseScreen<VM extends BaseViewModel>({
   children,
   viewModel,
 

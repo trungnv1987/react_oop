@@ -1,7 +1,7 @@
 import BaseModel from "react_oop/models/base_model";
 import WordModel from "react_oop/models/word/word_model";
 
-export default class WordFormModel extends BaseModel {
+export class WordFormModel extends BaseModel {
   word_id?: number;
   base_form?: string;
   third_person_singular?: string;

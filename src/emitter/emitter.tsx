@@ -1,6 +1,6 @@
 import mitt from "mitt";
 
-export default class Emitter {
+export class Emitter {
   static _emitter = mitt();
   static emit(event: string, data: any) {
     Emitter._emitter.emit(event, data);

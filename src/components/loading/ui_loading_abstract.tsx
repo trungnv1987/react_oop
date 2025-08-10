@@ -25,4 +25,4 @@ export abstract class UILoadingBase extends Component<UILoadingProps> {
   }
 }
 
-export default UILoadingBase;
+export UILoadingBase;

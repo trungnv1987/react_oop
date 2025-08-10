@@ -8,7 +8,7 @@ interface _ApiRequestParam<T> {
 }
 
 interface _BaseViewModel {}
-export default class BaseViewModel implements _BaseViewModel {
+export class BaseViewModel implements _BaseViewModel {
   loadingCubit = new UILoadingCubit();
 
   get loadingController(): UILoadingCubit {

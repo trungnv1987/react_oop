@@ -4,7 +4,7 @@ export enum BuildEnv {
   prod = "prod",
 }
 
-export default class GlobalConfig {
+export class GlobalConfig {
   static env = BuildEnv.dev;
   static isDebug = false;
 

@@ -3,7 +3,7 @@ import WordMeaningModel from "react_oop/models/word_meaning/word_meaning_model";
 import PhrasalVerbModel from "react_oop/models/phrasal_verb/phrasal_verb_model";
 import WordFormModel from "react_oop/models/word_form/word_form_model";
 
-export default class WordModel extends BaseModel {
+export class WordModel extends BaseModel {
   text?: string;
   phonetic?: string;
   topics?: string[];

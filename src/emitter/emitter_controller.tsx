@@ -1,6 +1,6 @@
 import Emitter from "./emitter";
 
-export default class EmitterController<T> {
+export class EmitterController<T> {
   key!: string;
   value?: T;
   constructor(key: string) {

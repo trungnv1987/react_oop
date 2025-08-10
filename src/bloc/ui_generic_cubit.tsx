@@ -33,4 +33,4 @@ function _UIGenericCubitComponent<T>({
 
 const UIGenericCubit = _UIGenericCubitComponent;
 
-export default UIGenericCubit;
+export UIGenericCubit;

@@ -17,6 +17,7 @@
     "declarationMap": true,
     "baseUrl": ".",
     "rootDir": "./src",
+    
 
     "paths": {
       "react_oop/*": ["./src/*"]
