@@ -1,4 +1,4 @@
-import { BaseModel } from "react_oop/models/base_model";
+import { BaseModel } from "../base_model";
 export class WordModel extends BaseModel {
     get text_en() {
         return undefined;

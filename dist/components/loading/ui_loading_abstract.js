@@ -1,6 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { Component } from "react";
-import { UIGenericCubit } from "react_oop/bloc/ui_generic_cubit";
+import { UIGenericCubit } from "../../bloc/ui_generic_cubit";
 export class UILoadingBase extends Component {
     constructor(props) {
         super(props);
