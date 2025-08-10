@@ -1,6 +1,6 @@
-import { UILoadingCubit } from "shared/bloc/cubit";
-import LogUtil from "shared/utils/log/log_util";
-import { ApiParam, request as callApi } from "shared/api/base/base_api";
+import { UILoadingCubit } from "react_oop/bloc/cubit";
+import LogUtil from "react_oop/utils/log/log_util";
+import { ApiParam, request as callApi } from "react_oop/api/base/base_api";
 
 interface _ApiRequestParam<T> {
   showLoading?: boolean;

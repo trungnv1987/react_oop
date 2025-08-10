@@ -1,4 +1,4 @@
-import GlobalConfig from "shared/config/config";
+import GlobalConfig from "react_oop/config/config";
 import { ApiMethod } from "./base_api";
 
 export interface ApiParamProps {}

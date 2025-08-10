@@ -1,5 +1,5 @@
 import { ReactNode, Component } from "react";
-import { UILoadingCubit } from "shared/bloc/cubit";
+import { UILoadingCubit } from "react_oop/bloc/cubit";
 export interface UILoadingProps {
     controller: UILoadingCubit;
     children?: ReactNode;
