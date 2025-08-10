@@ -1,4 +1,4 @@
-import Emitter from "./emitter";
+import { Emitter } from "./emitter";
 export class EmitterController {
     constructor(key) {
         this.key = key;

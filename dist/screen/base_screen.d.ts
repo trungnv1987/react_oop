@@ -1,4 +1,4 @@
-import BaseViewModel from "react_oop/view_model/base_view_model";
+import { BaseViewModel } from "react_oop/view_model/base_view_model";
 import { Context, ReactNode } from "react";
 import "react_oop/utils/exts";
 export interface BaseScreenProps<VM extends BaseViewModel> {

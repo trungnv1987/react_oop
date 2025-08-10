@@ -1,6 +1,6 @@
 "use client";
 
-import BaseViewModel from "react_oop/view_model/base_view_model";
+import { BaseViewModel } from "react_oop/view_model/base_view_model";
 import { Context, ReactNode, useEffect } from "react";
 import "react_oop/utils/exts";
 
