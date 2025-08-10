@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "tsc: build - shared",
+        "type": "shell",
+        "command": "tsc",  // Runs the TypeScript compiler
+        "args": [
+          "-w"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": ["$tsc"],
+        "detail": "Compile TypeScript in shared folder"
+      }
+    ]
+  }
+  

@@ -1,0 +1,14 @@
+{
+  "files.exclude": {
+    "**/node_modules/": true,
+    "**/dist/*": true,
+    "**/.d.ts": true,
+    // "src/generated/**": true,
+  },
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.tsserver.experimental.enableProjectDiagnostics": false,
+  "typescript.preferences.includePackageJsonAutoImports": "off",
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.validate.enable": true
+}

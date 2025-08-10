@@ -9,5 +9,5 @@ export default class LogUtil {
 
   static info(message: string) {
     console.info(message);
-  }
+}
 }
