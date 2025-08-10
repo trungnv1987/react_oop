@@ -72,10 +72,6 @@
       "types": "./src/enums/ui_enums.tsx",
       "default": "./src/enums/ui_enums.tsx"
     },
-    "./models": {
-      "types": "./src/models/index.ts",
-      "default": "./src/models/index.ts"
-    },
     "./models/phrasal_verb/*": {
       "types": "./src/models/phrasal_verb/*.ts",
       "default": "./src/models/phrasal_verb/*"
