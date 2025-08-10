@@ -1,6 +1,6 @@
-import BaseViewModel from "shared/view_model/base_view_model";
+import BaseViewModel from "react_oop/view_model/base_view_model";
 import { Context, ReactNode } from "react";
-import "shared/utils/exts";
+import "react_oop/utils/exts";
 export interface BaseScreenProps<VM extends BaseViewModel> {
     children: ReactNode;
     viewModel: VM;

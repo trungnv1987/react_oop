@@ -1,5 +1,5 @@
-import BaseModel from "shared/models/base_model";
-import WordModel from "shared/models/word/word_model";
+import BaseModel from "react_oop/models/base_model";
+import WordModel from "react_oop/models/word/word_model";
 export default class WordMeaningModel extends BaseModel {
     word_id?: number;
     definition_vi?: string;

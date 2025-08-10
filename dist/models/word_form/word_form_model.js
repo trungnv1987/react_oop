@@ -1,4 +1,4 @@
-import BaseModel from "shared/models/base_model";
+import BaseModel from "react_oop/models/base_model";
 export default class WordFormModel extends BaseModel {
     constructor(data = {}) {
         super(data);

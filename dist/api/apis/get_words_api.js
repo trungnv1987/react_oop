@@ -1,4 +1,4 @@
-import { ApiMethod, ApiParam, ApiRoute, } from "shared/api/base/base_api";
+import { ApiMethod, ApiParam, ApiRoute, } from "react_oop/api/base/base_api";
 export class GetWordsApi extends ApiParam {
     constructor(props) {
         super(props);

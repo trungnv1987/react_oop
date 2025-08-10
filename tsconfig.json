@@ -19,7 +19,7 @@
     "rootDir": "./src",
 
     "paths": {
-      "shared/*": ["./src/*"]
+      "react_oop/*": ["./src/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],

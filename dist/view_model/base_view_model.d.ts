@@ -1,5 +1,5 @@
-import { UILoadingCubit } from "shared/bloc/cubit";
-import { ApiParam } from "shared/api/base/base_api";
+import { UILoadingCubit } from "react_oop/bloc/cubit";
+import { ApiParam } from "react_oop/api/base/base_api";
 interface _ApiRequestParam<T> {
     showLoading?: boolean;
     param: ApiParam<T>;
