@@ -1,9 +1,8 @@
-import { ReactNode } from "react";
 import { GenericCubit } from "./cubit";
 import { UIComponentProps } from "../enums/ui_enums";
 
 export interface UIGenericCubitProps<T> extends UIComponentProps {
-  children: (value?: T) => ReactNode;
+  children: (value?: T) => JSX.Element;
   cubit: GenericCubit<T>;
 }
 
@@ -14,11 +13,11 @@ export abstract class UIGenericCubitBase<T> {
     this.props = props;
   }
 
-  abstract render(): ReactNode;
+  abstract render(): JSX.Element;
   abstract getClassName(): string;
 }
 
-function _UIGenericCubitComponent<T>({
+export function UIGenericCubit<T>({
   children,
   cubit,
   className,
@@ -35,5 +34,3 @@ function _UIGenericCubitComponent<T>({
     </div>
   );
 }
-
-export const UIGenericCubit = _UIGenericCubitComponent;

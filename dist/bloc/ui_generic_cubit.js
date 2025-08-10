@@ -15,8 +15,7 @@ export class UIGenericCubitBase {
         this.props = props;
     }
 }
-function _UIGenericCubitComponent(_a) {
+export function UIGenericCubit(_a) {
     var { children, cubit, className } = _a, props = __rest(_a, ["children", "cubit", "className"]);
     return (_jsx("div", { className: className, style: props.style, id: props.id, children: children(cubit.value) }, cubit.key));
 }
-export const UIGenericCubit = _UIGenericCubitComponent;

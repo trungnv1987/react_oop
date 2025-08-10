@@ -1,14 +1,14 @@
 "use client";
 
 import { BaseViewModel } from "../view_model/base_view_model";
-import { Context, ReactNode, useEffect } from "react";
+import { Context, useEffect } from "react";
 import "../utils/exts";
 
 export interface BaseScreenProps<VM extends BaseViewModel> {
-  children: ReactNode;
+  children: JSX.Element;
   viewModel: VM;
   viewModelContext: Context<VM | undefined>;
-  dialogs?: ReactNode[];
+  dialogs?: JSX.Element[];
 }
 
 export function BaseScreen<VM extends BaseViewModel>({

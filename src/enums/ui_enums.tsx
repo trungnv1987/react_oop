@@ -1,4 +1,4 @@
-import { CSSProperties, PropsWithChildren, RefObject } from "react";
+import { CSSProperties, RefObject } from "react";
 
 export enum UIScreenType {
   mobile = "mobile",
@@ -25,24 +25,8 @@ export interface UIComponentProps {
   style?: CSSProperties;
   ref?: RefObject<HTMLDivElement>;
   isScrollbarHidden?: boolean;
-  isFlex?:boolean;
-  isItemsCenter?:boolean;
-  isJustifyCenter?:boolean;
-  isTextCenter?:boolean;
-}
-
-export function UIComponent({
-  children,
-  ...props
-}: PropsWithChildren<UIComponentProps>) {
-  return (
-    <div
-      id={props.id}
-      ref={props.ref}
-      className={props.className}
-      style={props.style}
-    >
-      {children}
-    </div>
-  );
+  isFlex?: boolean;
+  isItemsCenter?: boolean;
+  isJustifyCenter?: boolean;
+  isTextCenter?: boolean;
 }

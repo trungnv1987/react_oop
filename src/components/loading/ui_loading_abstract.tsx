@@ -1,10 +1,10 @@
-import { ReactNode, Component } from "react";
+import { Component } from "react";
 import { UILoadingCubit } from "../../bloc/cubit";
 import { UIGenericCubit } from "../../bloc/ui_generic_cubit";
 
 export interface UILoadingProps {
   controller: UILoadingCubit;
-  children?: ReactNode;
+  children?: JSX.Element;
 }
 
 export abstract class UILoadingBase extends Component<UILoadingProps> {
@@ -16,7 +16,7 @@ export abstract class UILoadingBase extends Component<UILoadingProps> {
     this.controller = props.controller;
   }
 
-  render(): ReactNode {
+  render(): JSX.Element {
     return (
       <UIGenericCubit cubit={this.controller}>
         {(flag) => this.build(flag == true)}

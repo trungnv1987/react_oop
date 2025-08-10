@@ -1,4 +1,4 @@
-import { CSSProperties, PropsWithChildren, RefObject } from "react";
+import { CSSProperties, RefObject } from "react";
 export declare enum UIScreenType {
     mobile = "mobile",
     desktop = "desktop"
@@ -27,5 +27,4 @@ export interface UIComponentProps {
     isJustifyCenter?: boolean;
     isTextCenter?: boolean;
 }
-export declare function UIComponent({ children, ...props }: PropsWithChildren<UIComponentProps>): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=ui_enums.d.ts.map

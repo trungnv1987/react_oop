@@ -20,7 +20,7 @@
     
 
     "paths": {
-      "react_oop/*": ["./src/*"]
+      
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
