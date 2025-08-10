@@ -10,4 +10,6 @@ export class LogUtil {
   static info(message: string) {
     console.info(message);
   }
+
+  static sum = (a: number, b: number) => a + b;
 }
