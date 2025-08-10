@@ -1,5 +1,5 @@
-import GlobalConfig, { BuildEnv } from "../../config/config";
-import LogUtil from "../../utils/log/log_util";
+import { GlobalConfig, BuildEnv } from "../../config/config";
+import { LogUtil } from "../../utils/log/log_util";
 import * as pathLib from "path";
 export enum ApiRoute {
   saveWords = "save_words",

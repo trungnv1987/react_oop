@@ -1,4 +1,4 @@
-import NumberUtil from "../number/number_util";
+import { NumberUtil } from "../number/number_util";
 
 export class ArrayUtil {
   static splitStringToInts(str?: any): number[] | undefined {

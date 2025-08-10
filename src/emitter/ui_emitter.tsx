@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { GenericCallback } from "../callbacks/callbacks";
-import EmitterController from "./emitter_controller";
+import { EmitterController } from "./emitter_controller";
 
 export function UIEmitter<T>(
   controller: EmitterController<T>,
