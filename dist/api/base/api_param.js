@@ -1,4 +1,4 @@
-import { GlobalConfig } from "react_oop/config/config";
+import { GlobalConfig } from "../../config/config";
 import { ApiMethod } from "./base_api";
 export class ApiParam {
     constructor(props) {
