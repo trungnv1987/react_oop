@@ -1,5 +1,5 @@
 import { ApiMethod, ApiParam, ApiParamProps, ApiRoute } from "react_oop/api/base/base_api";
-import WordModel from "react_oop/models/word/word_model";
+import { WordModel } from "react_oop/models/word/word_model";
 export interface GetWordApiParamProps extends ApiParamProps {
     text: string;
 }
