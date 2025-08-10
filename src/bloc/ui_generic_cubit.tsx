@@ -1,36 +1,27 @@
+import { Component } from "react";
 import { GenericCubit } from "./cubit";
 import { UIComponentProps } from "../enums/ui_enums";
 
 export interface UIGenericCubitProps<T> extends UIComponentProps {
-  children: (value?: T) => JSX.Element;
   cubit: GenericCubit<T>;
 }
 
-export abstract class UIGenericCubitBase<T> {
-  protected props: UIGenericCubitProps<T>;
+export abstract class UIGenericCubit<T> extends Component<UIGenericCubitProps<T>> {
+  protected cubit: GenericCubit<T>;
 
   constructor(props: UIGenericCubitProps<T>) {
-    this.props = props;
+    super(props);
+    this.cubit = props.cubit;
   }
 
-  abstract render(): JSX.Element;
-  abstract getClassName(): string;
-}
+  abstract build(value?: T): JSX.Element;
 
-export function UIGenericCubit<T>({
-  children,
-  cubit,
-  className,
-  ...props
-}: UIGenericCubitProps<T>) {
-  return (
-    <div
-      key={cubit.key}
-      className={className}
-      style={props.style}
-      id={props.id}
-    >
-      {children(cubit.value)}
-    </div>
-  );
+  render(): JSX.Element {
+    const { className, style, id } = this.props;
+    return (
+      <div key={this.cubit.key} className={className} style={style} id={id}>
+        {this.build(this.cubit.value)}
+      </div>
+    );
+  }
 }
