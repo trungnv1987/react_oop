@@ -1,3 +1,4 @@
+"use strict";
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -9,11 +10,14 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import { UIGenericCubit } from "../../bloc/ui_generic_cubit";
-export class UILoadingBase extends UIGenericCubit {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UILoadingBase = void 0;
+const ui_generic_cubit_1 = require("../../bloc/ui_generic_cubit");
+class UILoadingBase extends ui_generic_cubit_1.UIGenericCubit {
     constructor(props) {
         const { controller } = props, rest = __rest(props, ["controller"]);
         super(Object.assign(Object.assign({}, rest), { cubit: controller }));
         this.controller = controller;
     }
 }
+exports.UILoadingBase = UILoadingBase;

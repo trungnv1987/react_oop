@@ -1,9 +1,12 @@
-import { UILoadingCubit } from "../bloc/cubit";
-import { LogUtil } from "../utils/log/log_util";
-import { request as callApi } from "../api/base/base_api";
-export class BaseViewModel {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BaseViewModel = void 0;
+const cubit_1 = require("../bloc/cubit");
+const log_util_1 = require("../utils/log/log_util");
+const base_api_1 = require("../api/base/base_api");
+class BaseViewModel {
     constructor() {
-        this.loadingCubit = new UILoadingCubit();
+        this.loadingCubit = new cubit_1.UILoadingCubit();
     }
     get loadingController() {
         return this.loadingCubit;
@@ -15,10 +18,10 @@ export class BaseViewModel {
         this.loadingCubit.hide();
     }
     componentDidMount() {
-        LogUtil.debug(`${this.constructor.name} componentDidMount`);
+        log_util_1.LogUtil.debug(`${this.constructor.name} componentDidMount`);
     }
     dispose() {
-        LogUtil.debug(`${this.constructor.name} dispose`);
+        log_util_1.LogUtil.debug(`${this.constructor.name} dispose`);
     }
     async request(props) {
         const param = props.param;
@@ -28,7 +31,7 @@ export class BaseViewModel {
         }
         let result;
         try {
-            result = await callApi(param);
+            result = await (0, base_api_1.request)(param);
         }
         catch (error) { }
         if (!param.isSuccess) {
@@ -44,3 +47,4 @@ export class BaseViewModel {
         return result;
     }
 }
+exports.BaseViewModel = BaseViewModel;

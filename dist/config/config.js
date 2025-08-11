@@ -1,10 +1,13 @@
-export var BuildEnv;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.GlobalConfig = exports.BuildEnv = void 0;
+var BuildEnv;
 (function (BuildEnv) {
     BuildEnv["dev"] = "dev";
     BuildEnv["stag"] = "stag";
     BuildEnv["prod"] = "prod";
-})(BuildEnv || (BuildEnv = {}));
-export class GlobalConfig {
+})(BuildEnv || (exports.BuildEnv = BuildEnv = {}));
+class GlobalConfig {
     static get debugging() {
         if (isServer()) {
             return this.isDebugInServer();
@@ -48,6 +51,7 @@ export class GlobalConfig {
         return domain + "api/";
     }
 }
+exports.GlobalConfig = GlobalConfig;
 GlobalConfig.env = BuildEnv.dev;
 GlobalConfig.isDebug = false;
 GlobalConfig.isDebugInServer = () => {

@@ -1,4 +1,7 @@
-export class NumberUtil {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.NumberUtil = void 0;
+class NumberUtil {
     static tryParseInt(value) {
         if (value === undefined || value === null) {
             return undefined;
@@ -44,3 +47,4 @@ export class NumberUtil {
             : parseFloat(num.toFixed(10)).toString();
     }
 }
+exports.NumberUtil = NumberUtil;

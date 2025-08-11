@@ -1,64 +1,13 @@
-import { GlobalConfig, BuildEnv } from "../../config/config";
-import { LogUtil } from "../../utils/log/log_util";
-export var ApiRoute;
-(function (ApiRoute) {
-    ApiRoute["saveWords"] = "save_words";
-    ApiRoute["saveForms"] = "save_forms";
-    ApiRoute["saveMeanings"] = "save_meanings";
-    ApiRoute["savePhrasalVerbs"] = "save_phrasal_verbs";
-    ApiRoute["getWord"] = "get_word";
-    ApiRoute["getWords"] = "get_words";
-})(ApiRoute || (ApiRoute = {}));
-export var ApiMethod;
-(function (ApiMethod) {
-    ApiMethod["get"] = "GET";
-    ApiMethod["post"] = "POST";
-    ApiMethod["put"] = "PUT";
-    ApiMethod["patch"] = "PATCH";
-    ApiMethod["delete"] = "DELETE";
-})(ApiMethod || (ApiMethod = {}));
-export class ApiParam {
-    constructor(props) {
-        this.isMobile = false;
-        this.isChatbot = false;
-        this.shouldLog = false; //log to server
-        this.isSuccess = false;
-        this.requireAuth = false; // Default to false, set to true for endpoints requiring authentication
-        this.method = ApiMethod.get;
-        this.props = props;
-    }
-    async onDone(_) { }
-    toUrl() {
-        var _a;
-        let uri = this.route;
-        const env = GlobalConfig.env;
-        const queryParam = (_a = this.queryParam) !== null && _a !== void 0 ? _a : {}; // Example: { name: "John", age: 25 }
-        const slashParam = this.slashParam; // Example: { id: 2 }
-        // Replace placeholders in URI with values from slashParam
-        if (slashParam) {
-            Object.entries(slashParam).forEach(([key, value]) => {
-                uri = uri.replace(`{${key}}`, encodeURIComponent(String(value)));
-            });
-        }
-        // Append query parameters
-        if (queryParam) {
-            const queryString = Object.entries(queryParam)
-                .map(([key, value]) => `${key}=${encodeURIComponent(String(value))}`)
-                .join("&");
-            if (queryString) {
-                uri += (uri.includes("?") ? "&" : "?") + queryString;
-            }
-        }
-        const rootURL = GlobalConfig.apiUrl();
-        console.log(`uri ${uri} rootURL ${rootURL}`);
-        const url = new URL(uri, rootURL).toString();
-        return url;
-    }
-}
-export async function request(param) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.request = request;
+const config_1 = require("../../config/config");
+const log_util_1 = require("../../utils/log/log_util");
+const api_param_1 = require("./api_param");
+async function request(param) {
     var _a, _b;
     const url = param.toUrl();
-    const env = GlobalConfig.env;
+    const env = config_1.GlobalConfig.env;
     const method = param.method;
     let body;
     if (param.rawBody) {
@@ -73,7 +22,7 @@ export async function request(param) {
         // Token should be provided by the consuming application
         headers["Authorization"] = `Bearer `;
     }
-    const shouldLog = env == BuildEnv.dev || env == BuildEnv.stag;
+    const shouldLog = env == config_1.BuildEnv.dev || env == config_1.BuildEnv.stag;
     console.log(`request: env ${env} url: ${url} 
     method ${method}
     headers: ${headers && JSON.stringify(headers)} 
@@ -113,8 +62,8 @@ export async function request(param) {
             param.message = message;
         }
         const result = param.parser(json);
-        if (param.method == ApiMethod.post) {
-            LogUtil.debug(`request_result ${JSON.stringify(json)}`);
+        if (param.method == api_param_1.ApiMethod.post) {
+            log_util_1.LogUtil.debug(`request_result ${JSON.stringify(json)}`);
         }
         await param.onDone(result);
         if (param.message && param.showErrorMessage == true) {

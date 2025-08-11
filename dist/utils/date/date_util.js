@@ -1,12 +1,18 @@
-import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
-import timezone from "dayjs/plugin/timezone";
-import "dayjs/locale/vi";
-import "dayjs/locale/en";
-import "./date_ext";
-dayjs.extend(utc); // Enable UTC support
-dayjs.extend(timezone);
-export class DateUtil {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DateUtil = void 0;
+const dayjs_1 = __importDefault(require("dayjs"));
+const utc_1 = __importDefault(require("dayjs/plugin/utc"));
+const timezone_1 = __importDefault(require("dayjs/plugin/timezone"));
+require("dayjs/locale/vi");
+require("dayjs/locale/en");
+require("./date_ext");
+dayjs_1.default.extend(utc_1.default); // Enable UTC support
+dayjs_1.default.extend(timezone_1.default);
+class DateUtil {
     static formatQuizDate() {
         const date = new Date();
         return date.formatDateOnly();
@@ -40,7 +46,8 @@ export class DateUtil {
         const string = value.string;
         if (!formatter || !string)
             return undefined;
-        const date = dayjs(string, formatter).toDate();
+        const date = (0, dayjs_1.default)(string, formatter).toDate();
         return date;
     }
 }
+exports.DateUtil = DateUtil;

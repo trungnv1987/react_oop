@@ -1,7 +1,10 @@
+"use strict";
 // https://day.js.org/docs/en/display/format#list-of-localized-formats
-import { LangType } from "./lang_enums";
-export const LANG_DATE_FORMATS = {
-    [LangType.en]: {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LANG_DATE_FORMATS = void 0;
+const lang_enums_1 = require("./lang_enums");
+exports.LANG_DATE_FORMATS = {
+    [lang_enums_1.LangType.en]: {
         fullDate: "YYYY/MM/DD",
         input: "YYYY-MM-DD",
         placeholder: "yyyy-MM-DD",
@@ -12,7 +15,7 @@ export const LANG_DATE_FORMATS = {
         hourMinute: "HH:mm",
         fullTime: "HH:mm:ss",
     },
-    [LangType.vi]: {
+    [lang_enums_1.LangType.vi]: {
         fullDate: "YYYY/MM/DD",
         input: "YYYY-MM-DD",
         placeholder: "yyyy-MM-DD",

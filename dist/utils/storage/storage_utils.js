@@ -1,4 +1,7 @@
-export class StorageUtils {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.StorageUtils = void 0;
+class StorageUtils {
     static getItem(key) {
         if (typeof localStorage !== "undefined") {
             return localStorage.getItem(key);
@@ -16,3 +19,4 @@ export class StorageUtils {
         }
     }
 }
+exports.StorageUtils = StorageUtils;

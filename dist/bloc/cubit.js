@@ -1,13 +1,16 @@
-import { makeObservable, observable, action } from "mobx";
-import { DateUtil } from "../utils/date/date_util";
-export class GenericCubit {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UILoadingCubit = exports.ReloadCubit = exports.GenericCubit = void 0;
+const mobx_1 = require("mobx");
+const date_util_1 = require("../utils/date/date_util");
+class GenericCubit {
     constructor(value) {
         this.callbacks = [];
         this.value = value;
         this.key = `${new Date().getMilliseconds()}`;
-        makeObservable(this, {
-            key: observable,
-            update: action,
+        (0, mobx_1.makeObservable)(this, {
+            key: mobx_1.observable,
+            update: mobx_1.action,
         });
     }
     update(value) {
@@ -23,18 +26,20 @@ export class GenericCubit {
         this.callbacks.push(callback);
     }
 }
-export class ReloadCubit extends GenericCubit {
+exports.GenericCubit = GenericCubit;
+class ReloadCubit extends GenericCubit {
     reload() {
-        super.update(DateUtil.currentEpochTime);
+        super.update(date_util_1.DateUtil.currentEpochTime);
     }
 }
-export class UILoadingCubit extends GenericCubit {
+exports.ReloadCubit = ReloadCubit;
+class UILoadingCubit extends GenericCubit {
     constructor(visible = false) {
         super(visible);
-        makeObservable(this, {
-            show: action,
-            hide: action,
-            toggle: action,
+        (0, mobx_1.makeObservable)(this, {
+            show: mobx_1.action,
+            hide: mobx_1.action,
+            toggle: mobx_1.action,
         });
     }
     get visible() {
@@ -51,3 +56,4 @@ export class UILoadingCubit extends GenericCubit {
         this.update(!this.visible);
     }
 }
+exports.UILoadingCubit = UILoadingCubit;

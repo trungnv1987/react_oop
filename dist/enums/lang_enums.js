@@ -1,10 +1,13 @@
-export var LangType;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AppLang = exports.LangType = void 0;
+var LangType;
 (function (LangType) {
     LangType["en"] = "en";
     LangType["vi"] = "vi";
-})(LangType || (LangType = {}));
+})(LangType || (exports.LangType = LangType = {}));
 const _key = "lang";
-export class AppLang {
+class AppLang {
     static get currentLang() {
         var _a;
         if (typeof localStorage !== "undefined") {
@@ -24,3 +27,4 @@ export class AppLang {
         }
     }
 }
+exports.AppLang = AppLang;

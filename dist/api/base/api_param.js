@@ -1,21 +1,42 @@
-import { GlobalConfig } from "../../config/config";
-import { ApiMethod } from "./base_api";
-export class ApiParam {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ApiParam = exports.ApiRoute = exports.ApiMethod = void 0;
+const config_1 = require("../../config/config");
+var ApiMethod;
+(function (ApiMethod) {
+    ApiMethod["get"] = "GET";
+    ApiMethod["post"] = "POST";
+    ApiMethod["put"] = "PUT";
+    ApiMethod["patch"] = "PATCH";
+    ApiMethod["delete"] = "DELETE";
+})(ApiMethod || (exports.ApiMethod = ApiMethod = {}));
+var ApiRoute;
+(function (ApiRoute) {
+    ApiRoute["saveWords"] = "save_words";
+    ApiRoute["saveForms"] = "save_forms";
+    ApiRoute["saveMeanings"] = "save_meanings";
+    ApiRoute["savePhrasalVerbs"] = "save_phrasal_verbs";
+    ApiRoute["getWord"] = "get_word";
+    ApiRoute["getWords"] = "get_words";
+})(ApiRoute || (exports.ApiRoute = ApiRoute = {}));
+class ApiParam {
     constructor(props) {
+        this.isMobile = false;
+        this.isChatbot = false;
         this.shouldLog = false; //log to server
         this.isSuccess = false;
-        this.isRoot = false; //use nextjs api
         this.requireAuth = false; // Default to false, set to true for endpoints requiring authentication
         this.method = ApiMethod.get;
         this.props = props;
     }
     async onDone(_) { }
     toUrl() {
+        var _a;
         let uri = this.route;
-        const queryParam = Object.assign({}, this.queryParam); // Example: { name: "John", age: 25 }
+        const env = config_1.GlobalConfig.env;
+        const queryParam = (_a = this.queryParam) !== null && _a !== void 0 ? _a : {}; // Example: { name: "John", age: 25 }
         const slashParam = this.slashParam; // Example: { id: 2 }
         // Replace placeholders in URI with values from slashParam
-        const kNotEncodeParams = ["created_by", "last_updated_at"];
         if (slashParam) {
             Object.entries(slashParam).forEach(([key, value]) => {
                 uri = uri.replace(`{${key}}`, encodeURIComponent(String(value)));
@@ -24,25 +45,16 @@ export class ApiParam {
         // Append query parameters
         if (queryParam) {
             const queryString = Object.entries(queryParam)
-                .map(([key, value]) => {
-                if (kNotEncodeParams.includes(key)) {
-                    return `${key}=${value}`;
-                }
-                return `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`;
-            })
+                .map(([key, value]) => `${key}=${encodeURIComponent(String(value))}`)
                 .join("&");
             if (queryString) {
                 uri += (uri.includes("?") ? "&" : "?") + queryString;
             }
         }
-        let rootURL = this.rootURL;
-        if (!rootURL) {
-            rootURL = GlobalConfig.apiUrl();
-        }
-        if (this.isRoot) {
-            rootURL = "/";
-        }
-        const url = rootURL + uri;
+        const rootURL = config_1.GlobalConfig.apiUrl();
+        console.log(`uri ${uri} rootURL ${rootURL}`);
+        const url = new URL(uri, rootURL).toString();
         return url;
     }
 }
+exports.ApiParam = ApiParam;

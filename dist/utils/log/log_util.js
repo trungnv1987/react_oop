@@ -1,4 +1,7 @@
-export class LogUtil {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LogUtil = void 0;
+class LogUtil {
     static debug(message) {
         console.debug(message);
     }
@@ -9,4 +12,5 @@ export class LogUtil {
         console.info(message);
     }
 }
+exports.LogUtil = LogUtil;
 LogUtil.sum = (a, b) => a + b;

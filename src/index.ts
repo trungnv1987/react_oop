@@ -1,4 +1,5 @@
 export * from "./api/base/api_param";
+export * from "./api/base/base_api";
 
 export * from "./bloc/cubit";
 export * from "./bloc/ui_generic_cubit";

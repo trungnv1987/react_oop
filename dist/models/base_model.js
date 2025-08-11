@@ -1,4 +1,7 @@
-export class BaseModel {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BaseModel = void 0;
+class BaseModel {
     constructor(data = {}) {
         this.id = data.id;
         this.created_at = data.created_at;
@@ -6,3 +9,4 @@ export class BaseModel {
         this.deleted_at = data.deleted_at;
     }
 }
+exports.BaseModel = BaseModel;

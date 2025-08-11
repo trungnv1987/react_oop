@@ -1,5 +1,5 @@
 import { UILoadingCubit } from "../bloc/cubit";
-import { ApiParam } from "../api/base/base_api";
+import { ApiParam } from "../api/base/api_param";
 interface _ApiRequestParam<T> {
     showLoading?: boolean;
     param: ApiParam<T>;

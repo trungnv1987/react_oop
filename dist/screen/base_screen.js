@@ -1,13 +1,16 @@
+"use strict";
 "use client";
-import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
-import { useEffect } from "react";
-import "../utils/exts";
-export function BaseScreen({ children, viewModel, viewModelContext, dialogs, }) {
-    useEffect(() => {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BaseScreen = BaseScreen;
+const jsx_runtime_1 = require("react/jsx-runtime");
+const react_1 = require("react");
+require("../utils/exts");
+function BaseScreen({ children, viewModel, viewModelContext, dialogs, }) {
+    (0, react_1.useEffect)(() => {
         viewModel.componentDidMount();
         return () => {
             viewModel.dispose();
         };
     }, []);
-    return (_jsxs(_Fragment, { children: [_jsx(viewModelContext.Provider, { value: viewModel, children: children }), dialogs] }));
+    return ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsx)(viewModelContext.Provider, { value: viewModel, children: children }), dialogs] }));
 }

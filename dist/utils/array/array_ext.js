@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 Array.prototype.nullIfEmpty = function () {
     return this.isEmpty() ? undefined : this;
 };
@@ -28,4 +30,3 @@ Array.prototype.firstOrNull = function (predicate) {
 Array.prototype.last = function () {
     return this.length > 0 ? this[this.length - 1] : undefined;
 };
-export {};
