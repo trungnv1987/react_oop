@@ -9,3 +9,4 @@ export class LogUtil {
         console.info(message);
     }
 }
+LogUtil.sum = (a, b) => a + b;

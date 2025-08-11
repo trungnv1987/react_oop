@@ -5,10 +5,4 @@ export class BaseModel {
         this.updated_at = data.updated_at;
         this.deleted_at = data.deleted_at;
     }
-    get text_en() {
-        return undefined;
-    }
-    get text_vi() {
-        return undefined;
-    }
 }
