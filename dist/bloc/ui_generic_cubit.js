@@ -1,4 +1,5 @@
 "use strict";
+"use client";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UIGenericCubit = void 0;
 const jsx_runtime_1 = require("react/jsx-runtime");

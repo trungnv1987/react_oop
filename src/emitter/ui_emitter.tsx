@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 import { GenericCallback } from "../callbacks/callbacks";
 import { EmitterController } from "./emitter_controller";

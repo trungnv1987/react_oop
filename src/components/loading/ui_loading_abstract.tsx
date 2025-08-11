@@ -1,3 +1,5 @@
+"use client";
+
 import { UILoadingCubit } from "../../bloc/cubit";
 import { UIGenericCubit } from "../../bloc/ui_generic_cubit";
 import { UIComponentProps } from "../../enums/ui_enums";

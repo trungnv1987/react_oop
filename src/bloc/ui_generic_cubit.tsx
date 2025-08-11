@@ -1,3 +1,5 @@
+"use client";
+
 import { Component } from "react";
 import { GenericCubit } from "./cubit";
 import { UIComponentProps } from "../enums/ui_enums";
