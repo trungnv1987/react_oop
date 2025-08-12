@@ -1,16 +1,22 @@
-import { UILoadingCubit } from "../bloc/cubit";
-import { LogUtil } from "../utils/log/log_util";
-import { ApiParam } from "../api/base/api_param";
-import { request as callApi } from "../api/base/base_api";
+import { Context, createContext } from "react";
+import { UILoadingCubit } from "../../bloc/cubit";
+import { ApiParam } from "../../api/base/api_param";
+import { LogUtil } from "../../utils/log/log_util";
+import { request } from "../../api/base/request";
 
 interface _ApiRequestParam<T> {
   showLoading?: boolean;
   param: ApiParam<T>;
 }
 
-interface _BaseViewModel {}
-export class BaseViewModel implements _BaseViewModel {
+export interface BaseViewModelProps {}
+export class BaseViewModel<P extends BaseViewModelProps> {
   loadingCubit = new UILoadingCubit();
+  props?: P;
+
+  constructor(props?: P) {
+    this.props = props;
+  }
 
   get loadingController(): UILoadingCubit {
     return this.loadingCubit;
@@ -40,7 +46,7 @@ export class BaseViewModel implements _BaseViewModel {
     }
     let result: T | undefined;
     try {
-      result = await callApi<T>(param);
+      result = await request<T>(param);
     } catch (error) {}
     if (!param.isSuccess) {
       // const message = param.message;

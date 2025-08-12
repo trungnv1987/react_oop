@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseViewModel = void 0;
-const cubit_1 = require("../bloc/cubit");
-const log_util_1 = require("../utils/log/log_util");
-const request_1 = require("../api/base/request");
+const cubit_1 = require("../../bloc/cubit");
+const log_util_1 = require("../../utils/log/log_util");
+const request_1 = require("../../api/base/request");
 class BaseViewModel {
-    constructor() {
+    constructor(props) {
         this.loadingCubit = new cubit_1.UILoadingCubit();
+        this.props = props;
     }
     get loadingController() {
         return this.loadingCubit;

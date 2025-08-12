@@ -1,6 +1,6 @@
 import { GlobalConfig, BuildEnv } from "../../config/config";
 import { LogUtil } from "../../utils/log/log_util";
-import { ApiMethod, ApiParam, ApiRoute } from "./api_param";
+import { ApiMethod, ApiParam } from "./api_param";
 
 export async function request<T>(param: ApiParam<T>): Promise<T | undefined> {
   const url = param.toUrl();
