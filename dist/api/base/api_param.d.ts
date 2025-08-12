@@ -6,12 +6,7 @@ export declare enum ApiMethod {
     delete = "DELETE"
 }
 export declare enum ApiRoute {
-    saveWords = "save_words",
-    saveForms = "save_forms",
-    saveMeanings = "save_meanings",
-    savePhrasalVerbs = "save_phrasal_verbs",
-    getWord = "get_word",
-    getWords = "get_words"
+    none = ""
 }
 export interface ApiParamProps {
 }

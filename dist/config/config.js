@@ -33,23 +33,6 @@ class GlobalConfig {
         var _a;
         return (_a = process.env.ENV) !== null && _a !== void 0 ? _a : BuildEnv.dev;
     }
-    static domain({ env } = {}) {
-        if (this.debugging) {
-            return "http://localhost:3005/";
-        }
-        switch (env !== null && env !== void 0 ? env : this.env) {
-            case BuildEnv.dev:
-                return "http://103.9.77.165:3005/";
-            case BuildEnv.stag:
-                return "http://103.9.77.165:3005/";
-            case BuildEnv.prod:
-                return "http://103.9.77.165:3005/";
-        }
-    }
-    static apiUrl({ env } = {}) {
-        const domain = this.domain({ env });
-        return domain + "api/";
-    }
 }
 exports.GlobalConfig = GlobalConfig;
 GlobalConfig.env = BuildEnv.dev;

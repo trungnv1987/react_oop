@@ -9,12 +9,7 @@ export enum ApiMethod {
 }
 
 export enum ApiRoute {
-  saveWords = "save_words",
-  saveForms = "save_forms",
-  saveMeanings = "save_meanings",
-  savePhrasalVerbs = "save_phrasal_verbs",
-  getWord = "get_word",
-  getWords = "get_words",
+  none = "",
 }
 
 export interface ApiParamProps {}
@@ -66,7 +61,7 @@ export abstract class ApiParam<T, P extends ApiParamProps = ApiParamProps> {
       }
     }
 
-    const rootURL = GlobalConfig.apiUrl();
+    const rootURL = this.rootURL;
     console.log(`uri ${uri} rootURL ${rootURL}`);
     const url = new URL(uri, rootURL).toString();
     return url;

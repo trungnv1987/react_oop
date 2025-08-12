@@ -12,12 +12,7 @@ var ApiMethod;
 })(ApiMethod || (exports.ApiMethod = ApiMethod = {}));
 var ApiRoute;
 (function (ApiRoute) {
-    ApiRoute["saveWords"] = "save_words";
-    ApiRoute["saveForms"] = "save_forms";
-    ApiRoute["saveMeanings"] = "save_meanings";
-    ApiRoute["savePhrasalVerbs"] = "save_phrasal_verbs";
-    ApiRoute["getWord"] = "get_word";
-    ApiRoute["getWords"] = "get_words";
+    ApiRoute["none"] = "";
 })(ApiRoute || (exports.ApiRoute = ApiRoute = {}));
 class ApiParam {
     constructor(props) {
@@ -51,7 +46,7 @@ class ApiParam {
                 uri += (uri.includes("?") ? "&" : "?") + queryString;
             }
         }
-        const rootURL = config_1.GlobalConfig.apiUrl();
+        const rootURL = this.rootURL;
         console.log(`uri ${uri} rootURL ${rootURL}`);
         const url = new URL(uri, rootURL).toString();
         return url;

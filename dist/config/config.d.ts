@@ -13,11 +13,5 @@ export declare class GlobalConfig {
     static get isProd(): boolean;
     static get originUrl(): string;
     static get currentServerEnv(): BuildEnv;
-    static domain({ env }?: {
-        env?: BuildEnv;
-    }): string;
-    static apiUrl({ env }?: {
-        env?: BuildEnv;
-    }): string;
 }
 //# sourceMappingURL=config.d.ts.map

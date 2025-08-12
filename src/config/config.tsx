@@ -42,24 +42,7 @@ export class GlobalConfig {
     return (process.env.ENV as BuildEnv | undefined) ?? BuildEnv.dev;
   }
 
-  static domain({ env }: { env?: BuildEnv } = {}): string {
-    if (this.debugging) {
-      return "http://localhost:3005/";
-    }
-    switch (env ?? this.env) {
-      case BuildEnv.dev:
-        return "http://103.9.77.165:3005/";
-      case BuildEnv.stag:
-        return "http://103.9.77.165:3005/";
-      case BuildEnv.prod:
-        return "http://103.9.77.165:3005/";
-    }
-  }
-
-  static apiUrl({ env }: { env?: BuildEnv } = {}): string {
-    const domain = this.domain({ env });
-    return domain + "api/";
-  }
+  
 }
 
 function isServer(): boolean {
