@@ -1,7 +1,10 @@
 import { useContext } from "react";
-import { SampleViewModel } from "../view_model/sample_view_model";
+import {
+  SampleViewModel,
+  SampleViewModelContext,
+} from "../view_model/sample_view_model";
 
 export function SampleMainView() {
-  const vm = useContext<SampleViewModel | undefined>(SampleViewModel.context);
-  return <>hello</>;
+  const vm = useContext<SampleViewModel | undefined>(SampleViewModelContext);
+  return <>SampleMainView</>;
 }
