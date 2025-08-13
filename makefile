@@ -8,3 +8,6 @@ build:
 
 dev:
 	npm run dev
+
+screen:
+	sh ./scripts/create_screen.sh create

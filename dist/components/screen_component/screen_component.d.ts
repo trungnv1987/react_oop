@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { BaseViewModelProps } from "../../screen/base/base_view_model";
+import { BaseViewModelProps } from "../../screens/base/base_view_model";
 export interface ScreenComponentProps<VMP extends BaseViewModelProps> {
 }
 export declare abstract class ScreenComponent<VMP extends BaseViewModelProps> extends Component<ScreenComponentProps<VMP>> {
