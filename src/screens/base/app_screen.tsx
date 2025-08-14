@@ -4,7 +4,7 @@ import { BaseScreen, BaseScreenProps } from "./base_screen";
 export interface AppScreenProps<VM extends BaseViewModel<any>>
   extends BaseScreenProps<VM> {}
 
-export default function AppScreen<VM extends BaseViewModel<any>>({
+export function AppScreen<VM extends BaseViewModel<any>>({
   children,
   viewModel,
   viewModelContext,

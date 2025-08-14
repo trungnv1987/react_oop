@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = AppScreen;
+exports.AppScreen = AppScreen;
 const jsx_runtime_1 = require("react/jsx-runtime");
 const base_screen_1 = require("./base_screen");
 function AppScreen({ children, viewModel, viewModelContext, }) {

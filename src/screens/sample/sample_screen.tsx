@@ -4,7 +4,7 @@ import {
   SampleViewModelContext,
 } from "./view_model/sample_view_model";
 import { SampleMainView } from "./components/sample_main_view";
-import AppScreen from "../base/app_screen";
+import { AppScreen } from "../base/app_screen";
 
 // for nextjs
 // export const SampleScreenClient = dynamic(() => import("./sample_screen"), {
