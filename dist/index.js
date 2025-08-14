@@ -39,6 +39,7 @@ __exportStar(require("./utils/number/number_util"), exports);
 __exportStar(require("./utils/storage/storage_utils"), exports);
 __exportStar(require("./utils/string/string_ext"), exports);
 __exportStar(require("./screens/base/base_view_model"), exports);
+__exportStar(require("./screens/base/app_screen"), exports);
 __exportStar(require("./screens/sample/sample_screen"), exports);
 __exportStar(require("./screens/sample/view_model/sample_view_model"), exports);
 __exportStar(require("./screens/sample/components/sample_main_view"), exports);
