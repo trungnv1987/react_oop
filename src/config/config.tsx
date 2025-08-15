@@ -7,9 +7,10 @@ export enum BuildEnv {
 export class GlobalConfig {
   static env = BuildEnv.dev;
   static isDebug = false;
+  static envAsString?: string;
 
   static setEnvAsString(env: string) {
-    this.env = env as BuildEnv;
+    this.envAsString = env;
   }
 
   static get debugging(): boolean {
