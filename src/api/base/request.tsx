@@ -1,4 +1,3 @@
-import { GlobalConfig, BuildEnv } from "../../config/config";
 import { LogUtil } from "../../utils/log/log_util";
 import { ApiMethod, ApiParam } from "./api_param";
 

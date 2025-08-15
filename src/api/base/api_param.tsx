@@ -1,5 +1,3 @@
-import { GlobalConfig } from "../../config/config";
-
 export enum ApiMethod {
   get = "GET",
   post = "POST",
