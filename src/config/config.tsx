@@ -10,11 +10,6 @@ export class GlobalConfig {
   static isDebug = false;
   static envAsString?: string;
 
-  static setEnvAsString(env: string) {
-    this.envAsString = env;
-    // this.env = env as BuildEnv;
-  }
-
   static get debugging(): boolean {
     if (isServer()) {
       return this.isDebugInServer();

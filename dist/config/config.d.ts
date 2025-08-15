@@ -7,7 +7,6 @@ export declare class GlobalConfig {
     static env: BuildEnv;
     static isDebug: boolean;
     static envAsString?: string;
-    static setEnvAsString(env: string): void;
     static get debugging(): boolean;
     static isDebugInServer: () => boolean;
     static get isDev(): boolean;

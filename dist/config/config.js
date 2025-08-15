@@ -9,10 +9,6 @@ var BuildEnv;
 })(BuildEnv || (exports.BuildEnv = BuildEnv = {}));
 const kBuildEnvs = Object.values(BuildEnv).map((env) => env.toString());
 class GlobalConfig {
-    static setEnvAsString(env) {
-        this.envAsString = env;
-        // this.env = env as BuildEnv;
-    }
     static get debugging() {
         if (isServer()) {
             return this.isDebugInServer();
