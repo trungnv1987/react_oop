@@ -8,6 +8,10 @@ export class GlobalConfig {
   static env = BuildEnv.dev;
   static isDebug = false;
 
+  static setEnvAsString(env: string) {
+    this.env = env as BuildEnv;
+  }
+
   static get debugging(): boolean {
     if (isServer()) {
       return this.isDebugInServer();
@@ -41,8 +45,6 @@ export class GlobalConfig {
   static get currentServerEnv(): BuildEnv {
     return (process.env.ENV as BuildEnv | undefined) ?? BuildEnv.dev;
   }
-
-  
 }
 
 function isServer(): boolean {
