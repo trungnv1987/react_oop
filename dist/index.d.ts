@@ -4,7 +4,6 @@ export * from "./bloc/cubit";
 export * from "./bloc/ui_generic_cubit";
 export * from "./callbacks/callbacks";
 export * from "./components/loading/ui_loading_abstract";
-export * from "./config/config";
 export * from "./emitter/emitter";
 export * from "./emitter/emitter_controller";
 export * from "./emitter/ui_emitter";

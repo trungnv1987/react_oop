@@ -20,7 +20,6 @@ __exportStar(require("./bloc/cubit"), exports);
 __exportStar(require("./bloc/ui_generic_cubit"), exports);
 __exportStar(require("./callbacks/callbacks"), exports);
 __exportStar(require("./components/loading/ui_loading_abstract"), exports);
-__exportStar(require("./config/config"), exports);
 __exportStar(require("./emitter/emitter"), exports);
 __exportStar(require("./emitter/emitter_controller"), exports);
 __exportStar(require("./emitter/ui_emitter"), exports);
