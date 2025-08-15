@@ -7,10 +7,11 @@ var BuildEnv;
     BuildEnv["stag"] = "stag";
     BuildEnv["prod"] = "prod";
 })(BuildEnv || (exports.BuildEnv = BuildEnv = {}));
+const kBuildEnvs = Object.values(BuildEnv).map((env) => env.toString());
 class GlobalConfig {
     static setEnvAsString(env) {
         this.envAsString = env;
-        this.env = env;
+        // this.env = env as BuildEnv;
     }
     static get debugging() {
         if (isServer()) {

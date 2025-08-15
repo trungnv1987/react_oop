@@ -4,6 +4,7 @@ export enum BuildEnv {
   prod = "prod",
 }
 
+const kBuildEnvs = Object.values(BuildEnv).map((env) => env.toString());
 export class GlobalConfig {
   static env = BuildEnv.dev;
   static isDebug = false;
@@ -11,7 +12,7 @@ export class GlobalConfig {
 
   static setEnvAsString(env: string) {
     this.envAsString = env;
-    this.env = env as BuildEnv;
+    // this.env = env as BuildEnv;
   }
 
   static get debugging(): boolean {
