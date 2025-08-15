@@ -13,8 +13,6 @@ export interface ApiParamProps {
 export declare abstract class ApiParam<T, P extends ApiParamProps = ApiParamProps> {
     abstract route: ApiRoute | string;
     abstract parser(json: any): T | undefined;
-    isMobile: boolean;
-    isChatbot: boolean;
     queryParam?: Record<string, any>;
     slashParam?: Object;
     shouldLog: boolean;

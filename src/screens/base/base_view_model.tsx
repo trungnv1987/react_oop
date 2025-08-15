@@ -1,7 +1,7 @@
 import { UILoadingCubit } from "../../bloc/cubit";
 import { ApiParam } from "../../api/base/api_param";
 import { LogUtil } from "../../utils/log/log_util";
-import { request } from "../../api/base/request";
+import { request as callApi } from "../../api/base/request";
 
 interface _ApiRequestParam<T> {
   showLoading?: boolean;
@@ -45,7 +45,7 @@ export class BaseViewModel<P extends BaseViewModelProps> {
     }
     let result: T | undefined;
     try {
-      result = await request<T>(param);
+      result = await callApi<T>(param);
     } catch (error) {}
     if (!param.isSuccess) {
       // const message = param.message;

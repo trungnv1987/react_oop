@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.request = request;
-const config_1 = require("../../config/config");
 const log_util_1 = require("../../utils/log/log_util");
 const api_param_1 = require("./api_param");
 async function request(param) {
     var _a, _b;
     const url = param.toUrl();
-    const env = config_1.GlobalConfig.env;
     const method = param.method;
     let body;
     if (param.rawBody) {
@@ -22,8 +20,7 @@ async function request(param) {
         // Token should be provided by the consuming application
         headers["Authorization"] = `Bearer `;
     }
-    const shouldLog = env == config_1.BuildEnv.dev || env == config_1.BuildEnv.stag;
-    console.log(`request: env ${env} url: ${url} 
+    console.log(`request: url: ${url} 
     method ${method}
     headers: ${headers && JSON.stringify(headers)} 
     ${body ? `body ${JSON.stringify(body)}` : ""}`);

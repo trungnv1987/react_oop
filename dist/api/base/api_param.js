@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ApiParam = exports.ApiRoute = exports.ApiMethod = void 0;
-const config_1 = require("../../config/config");
 var ApiMethod;
 (function (ApiMethod) {
     ApiMethod["get"] = "GET";
@@ -16,8 +15,6 @@ var ApiRoute;
 })(ApiRoute || (exports.ApiRoute = ApiRoute = {}));
 class ApiParam {
     constructor(props) {
-        this.isMobile = false;
-        this.isChatbot = false;
         this.shouldLog = false; //log to server
         this.isSuccess = false;
         this.requireAuth = false; // Default to false, set to true for endpoints requiring authentication
@@ -28,7 +25,6 @@ class ApiParam {
     toUrl() {
         var _a;
         let uri = this.route;
-        const env = config_1.GlobalConfig.env;
         const queryParam = (_a = this.queryParam) !== null && _a !== void 0 ? _a : {}; // Example: { name: "John", age: 25 }
         const slashParam = this.slashParam; // Example: { id: 2 }
         // Replace placeholders in URI with values from slashParam

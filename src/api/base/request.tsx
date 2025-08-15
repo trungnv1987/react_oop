@@ -4,7 +4,6 @@ import { ApiMethod, ApiParam } from "./api_param";
 
 export async function request<T>(param: ApiParam<T>): Promise<T | undefined> {
   const url = param.toUrl();
-  const env = GlobalConfig.env;
   const method = param.method;
   let body;
   if (param.rawBody) {
@@ -23,10 +22,8 @@ export async function request<T>(param: ApiParam<T>): Promise<T | undefined> {
     headers["Authorization"] = `Bearer `;
   }
 
-  const shouldLog = env == BuildEnv.dev || env == BuildEnv.stag;
-
   console.log(
-    `request: env ${env} url: ${url} 
+    `request: url: ${url} 
     method ${method}
     headers: ${headers && JSON.stringify(headers)} 
     ${body ? `body ${JSON.stringify(body)}` : ""}`

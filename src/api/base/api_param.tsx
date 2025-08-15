@@ -16,8 +16,6 @@ export interface ApiParamProps {}
 export abstract class ApiParam<T, P extends ApiParamProps = ApiParamProps> {
   abstract route: ApiRoute | string;
   abstract parser(json: any): T | undefined;
-  isMobile = false;
-  isChatbot = false;
   queryParam?: Record<string, any>; // ?name=1&a=2
   slashParam?: Object; // ?/event/id/
   shouldLog = false; //log to server
@@ -39,7 +37,6 @@ export abstract class ApiParam<T, P extends ApiParamProps = ApiParamProps> {
   async onDone(_?: T) {}
   toUrl(): string {
     let uri: string = this.route;
-    const env = GlobalConfig.env;
     const queryParam: any = this.queryParam ?? {}; // Example: { name: "John", age: 25 }
     const slashParam = this.slashParam; // Example: { id: 2 }
 
