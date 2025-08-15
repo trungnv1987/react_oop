@@ -26,6 +26,7 @@ class BaseViewModel {
     }
     async request(props) {
         const param = props.param;
+        log_util_1.LogUtil.debug(`base_view_model: request: ${param.rootURL} type: ${typeof param}`);
         const showLoading = props.showLoading == true;
         if (showLoading) {
             this.showLoading();

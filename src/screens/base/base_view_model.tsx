@@ -38,6 +38,9 @@ export class BaseViewModel<P extends BaseViewModelProps> {
 
   async request<T>(props: _ApiRequestParam<T>): Promise<T | undefined> {
     const param = props.param;
+    LogUtil.debug(
+      `base_view_model: request: ${param.rootURL} type: ${typeof param}`
+    );
 
     const showLoading = props.showLoading == true;
     if (showLoading) {
