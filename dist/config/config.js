@@ -10,6 +10,7 @@ var BuildEnv;
 class GlobalConfig {
     static setEnvAsString(env) {
         this.envAsString = env;
+        this.env = env;
     }
     static get debugging() {
         if (isServer()) {
