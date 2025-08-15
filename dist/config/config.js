@@ -15,6 +15,17 @@ class GlobalConfig {
         }
         return this.isDebug;
     }
+    static setEnv(env) {
+        if (this.envAsString) {
+            this.env = this.envAsString;
+        }
+        else if (env) {
+            this.env = env;
+        }
+        else {
+            this.env = BuildEnv.dev;
+        }
+    }
     static get isDev() {
         return this.env === BuildEnv.dev;
     }

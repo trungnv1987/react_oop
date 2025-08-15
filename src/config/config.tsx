@@ -17,6 +17,16 @@ export class GlobalConfig {
     return this.isDebug;
   }
 
+  static setEnv(env?: BuildEnv) {
+    if (this.envAsString) {
+      this.env = this.envAsString as BuildEnv;
+    } else if (env) {
+      this.env = env;
+    } else {
+      this.env = BuildEnv.dev;
+    }
+  }
+
   static isDebugInServer = () => {
     return (
       process.env.NODE_ENV == "development" || process.env.NODE_ENV == "test"
