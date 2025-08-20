@@ -1,3 +1,5 @@
+import React, { useCallback, useRef } from "react";
+
 export interface UIValueProps<T> {
   selected?: T;
   onChanged?: (value?: T) => void;
@@ -18,19 +20,30 @@ export type VoidCallback = () => void;
 export type ConstructorCallback<T> = new (...args: any[]) => T;
 
 
-export function debounce<T extends (...args: any[]) => void>(
-  func: T,
-  delay: number
-): (...args: Parameters<T>) => void {
-  let timeoutId: ReturnType<typeof setTimeout>;
+function useDebounce<T extends (...args: any[]) => void>(func: T, delay: number) {
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
-  return (...args: Parameters<T>) => {
-    if (timeoutId) clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func(...args);
-    }, delay);
-  };
+  return useCallback(
+    (...args: Parameters<T>) => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => {
+        func(...args);
+      }, delay);
+    },
+    [func, delay]
+  );
 }
 
-// const debouncedSearch = debounce(handleSearch, 500);
+/*
+const debouncedSearch = useDebounce((query: string) => {
+    console.log("Call API with:", query);
+  }, 500);
+<TextInput
+      onChangeText={(val) => {
+        setText(val);
+        debouncedSearch(val);
+      }}
 
+    />
+
+*/
