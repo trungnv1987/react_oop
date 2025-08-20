@@ -15,8 +15,13 @@ declare global {
     removeWhere(predicate: (item: T) => boolean): T[];
 
     nullIfEmpty(): T[] | undefined;
+    clear(): void;
   }
 }
+
+Array.prototype.clear = function () {
+  this.length = 0;
+};
 
 Array.prototype.nullIfEmpty = function () {
   return this.isEmpty() ? undefined : this;

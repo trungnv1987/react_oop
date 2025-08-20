@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+Array.prototype.clear = function () {
+    this.length = 0;
+};
 Array.prototype.nullIfEmpty = function () {
     return this.isEmpty() ? undefined : this;
 };

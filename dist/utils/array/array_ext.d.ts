@@ -10,6 +10,7 @@ declare global {
         random(): T[];
         removeWhere(predicate: (item: T) => boolean): T[];
         nullIfEmpty(): T[] | undefined;
+        clear(): void;
     }
 }
 //# sourceMappingURL=array_ext.d.ts.map
