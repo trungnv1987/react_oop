@@ -20,7 +20,7 @@ export type VoidCallback = () => void;
 export type ConstructorCallback<T> = new (...args: any[]) => T;
 
 
-function useDebounce<T extends (...args: any[]) => void>(func: T, delay: number) {
+export function useDebounce<T extends (...args: any[]) => void>(func: T, delay: number) {
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
   return useCallback(
