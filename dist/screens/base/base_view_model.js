@@ -48,5 +48,8 @@ class BaseViewModel {
         }
         return result;
     }
+    async preload() {
+        return Promise.resolve();
+    }
 }
 exports.BaseViewModel = BaseViewModel;

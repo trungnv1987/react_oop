@@ -6,6 +6,7 @@ import { request as callApi } from "../../api/base/request";
 interface _ApiRequestParam<T> {
   showLoading?: boolean;
   param: ApiParam<T>;
+  preload(): Promise<void>;
 }
 
 export interface BaseViewModelProps {}
@@ -61,5 +62,9 @@ export class BaseViewModel<P extends BaseViewModelProps> {
       this.hideLoading();
     }
     return result;
+  }
+
+  async preload(): Promise<void> {
+    return Promise.resolve();
   }
 }

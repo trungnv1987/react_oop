@@ -3,6 +3,7 @@ import { ApiParam } from "../../api/base/api_param";
 interface _ApiRequestParam<T> {
     showLoading?: boolean;
     param: ApiParam<T>;
+    preload(): Promise<void>;
 }
 export interface BaseViewModelProps {
 }
@@ -16,6 +17,7 @@ export declare class BaseViewModel<P extends BaseViewModelProps> {
     componentDidMount(): void;
     dispose(): void;
     request<T>(props: _ApiRequestParam<T>): Promise<T | undefined>;
+    preload(): Promise<void>;
 }
 export {};
 //# sourceMappingURL=base_view_model.d.ts.map
