@@ -12,5 +12,6 @@ export declare class DateUtil {
     static get currentEpochTime(): number;
     static parseServerDate(value: DateParserProps): Date | undefined;
     static parseGeneric(value: DateParserProps): Date | undefined;
+    static parseISODate(value: DateParserProps): Date | undefined;
 }
 //# sourceMappingURL=date_util.d.ts.map

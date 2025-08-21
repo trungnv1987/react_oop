@@ -50,4 +50,18 @@ export class DateUtil {
     const date = dayjs(string, formatter).toDate();
     return date;
   }
+
+  static parseISODate(value: DateParserProps): Date | undefined {
+    const string = value.string;
+    if (!string) return undefined;
+    let date = new Date(string);
+    // Check if the date is valid
+    if (isNaN(date.getTime())) {
+      return undefined;
+    }
+    if (value.toUtcTime) {
+      date = date.toUtcTime();
+    }
+    return date;
+  }
 }

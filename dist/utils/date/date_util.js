@@ -49,5 +49,19 @@ class DateUtil {
         const date = (0, dayjs_1.default)(string, formatter).toDate();
         return date;
     }
+    static parseISODate(value) {
+        const string = value.string;
+        if (!string)
+            return undefined;
+        let date = new Date(string);
+        // Check if the date is valid
+        if (isNaN(date.getTime())) {
+            return undefined;
+        }
+        if (value.toUtcTime) {
+            date = date.toUtcTime();
+        }
+        return date;
+    }
 }
 exports.DateUtil = DateUtil;
