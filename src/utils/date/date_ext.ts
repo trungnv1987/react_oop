@@ -15,6 +15,14 @@ declare global {
     toUtcTime(): Date;
     formatApi(): string;
     formatDateOnly(): string;
+    addDays(days: number): Date;
+    addHours(hours: number): Date;
+    addMinutes(minutes: number): Date;
+    addSeconds(seconds: number): Date;
+    addMilliseconds(milliseconds: number): Date;
+    addMonths(months: number): Date;
+    addYears(years: number): Date;
+    subtractDays(days: number): Date;
   }
 }
 
@@ -32,4 +40,36 @@ Date.prototype.formatDateOnly = function (): string {
     LANG_DATE_FORMATS[AppLang.currentLang].input
   );
   return result;
+};
+
+Date.prototype.addDays = function (days: number): Date {
+  return new Date(this.getTime() + days * 24 * 60 * 60 * 1000);
+};
+
+Date.prototype.addHours = function (hours: number): Date {
+  return new Date(this.getTime() + hours * 60 * 60 * 1000);
+};
+
+Date.prototype.addMinutes = function (minutes: number): Date {
+  return new Date(this.getTime() + minutes * 60 * 1000);
+};
+
+Date.prototype.addSeconds = function (seconds: number): Date {
+  return new Date(this.getTime() + seconds * 1000);
+};
+
+Date.prototype.addMilliseconds = function (milliseconds: number): Date {
+  return new Date(this.getTime() + milliseconds);
+};
+
+Date.prototype.addMonths = function (months: number): Date {
+  return new Date(this.getTime() + months * 30 * 24 * 60 * 60 * 1000);
+};
+
+Date.prototype.addYears = function (years: number): Date {
+  return new Date(this.getTime() + years * 365 * 24 * 60 * 60 * 1000);
+};
+
+Date.prototype.subtractDays = function (days: number): Date {
+  return new Date(this.getTime() - days * 24 * 60 * 60 * 1000);
 };
