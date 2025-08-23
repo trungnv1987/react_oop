@@ -16,12 +16,10 @@ export async function request<T>(param: ApiParam<T>): Promise<T | undefined> {
     "Content-Type": param.headers?.["Content-Type"] ?? "application/json",
     ...param.headers,
   };
-  if (param.requireAuth) {
+  const accessToken = await param.getAccessToken();
+  if ((param.requireAuth || param.shouldAuthIfPossile ) && accessToken) {
     // Token should be provided by the consuming application
-    const accessToken = await param.getAccessToken();
-    if (accessToken) {
-      headers["Authorization"] = `Bearer ${accessToken}`;
-    }
+    headers["Authorization"] = `Bearer ${accessToken}`;
   }
 
   console.log(

@@ -18,6 +18,7 @@ class ApiParam {
         this.shouldLog = false; //log to server
         this.isSuccess = false;
         this.requireAuth = false; // Default to false, set to true for endpoints requiring authentication
+        this.shouldAuthIfPossile = false;
         this.method = ApiMethod.get;
         this.props = props;
     }

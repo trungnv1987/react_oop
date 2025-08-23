@@ -25,6 +25,7 @@ export abstract class ApiParam<T, P extends ApiParamProps = ApiParamProps> {
   message?: string;
   showErrorMessage?: boolean;
   requireAuth = false; // Default to false, set to true for endpoints requiring authentication
+  shouldAuthIfPossile = false;
   headers?: Record<string, any>;
   constructor(props: P) {
     this.props = props;
