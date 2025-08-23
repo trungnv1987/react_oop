@@ -30,6 +30,7 @@ export abstract class ApiParam<T, P extends ApiParamProps = ApiParamProps> {
     this.props = props;
   }
 
+  abstract getAccessToken(): Promise<string | undefined>;
   method = ApiMethod.get;
 
   async onDone(_?: T) {}

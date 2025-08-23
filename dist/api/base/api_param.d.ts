@@ -26,6 +26,7 @@ export declare abstract class ApiParam<T, P extends ApiParamProps = ApiParamProp
     requireAuth: boolean;
     headers?: Record<string, any>;
     constructor(props: P);
+    abstract getAccessToken(): Promise<string | undefined>;
     method: ApiMethod;
     onDone(_?: T): Promise<void>;
     toUrl(): string;

@@ -18,7 +18,10 @@ export async function request<T>(param: ApiParam<T>): Promise<T | undefined> {
   };
   if (param.requireAuth) {
     // Token should be provided by the consuming application
-    headers["Authorization"] = `Bearer `;
+    const accessToken = await param.getAccessToken();
+    if (accessToken) {
+      headers["Authorization"] = `Bearer ${accessToken}`;
+    }
   }
 
   console.log(
