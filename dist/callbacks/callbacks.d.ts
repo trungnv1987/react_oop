@@ -7,7 +7,7 @@ export interface EntityParserProps {
     json: any;
     isApi?: boolean;
 }
-export type GenericCallback<T> = (value: T) => void;
+export type GenericCallback<T> = (value?: T) => void;
 export type GenericGetter<T> = () => T | undefined;
 export type StringCallback = (text?: string) => void;
 export type VoidCallback = () => void;

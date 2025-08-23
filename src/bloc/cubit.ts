@@ -1,18 +1,23 @@
-import { makeObservable, observable, action } from "mobx";
 import { DateUtil } from "../utils/date/date_util";
+import { GenericCallback } from "../callbacks/callbacks";
 
-export class GenericCubit<T> {
+interface _GenericCubit<T> {
+  addCallback(callback: GenericCallback<T>): void;
+  update(value?: T): void;
+  removeCallback(callback: GenericCallback<T>): void;
+
+  dispose(): void;
+}
+
+export class GenericCubit<T> implements _GenericCubit<T> {
   value: T | undefined;
   key: string | undefined;
-  callbacks: (() => void)[] = [];
+  callbacks: GenericCallback<T>[] = [];
 
   constructor(value?: T) {
     this.value = value;
     this.key = `${new Date().getMilliseconds()}`;
-    makeObservable(this, {
-      key: observable,
-      update: action,
-    });
+   
   }
 
   update(value?: T) {
@@ -21,12 +26,20 @@ export class GenericCubit<T> {
     const callbacks = this.callbacks;
     for (let index = 0; index < callbacks.length; index++) {
       const callback = callbacks[index];
-      callback.call(this);
+      callback(this.value)
     }
   }
 
-  addCallback(callback: () => void) {
+  addCallback(callback: VoidFunction) {
     this.callbacks.push(callback);
+  }
+
+  removeCallback(callback: VoidFunction) {
+    this.callbacks = this.callbacks.filter((c) => c !== callback);
+  }
+
+  dispose() {
+    this.callbacks = [];
   }
 }
 
@@ -39,11 +52,7 @@ export class ReloadCubit extends GenericCubit<number> {
 export class UILoadingCubit extends GenericCubit<boolean> {
   constructor(visible: boolean = false) {
     super(visible);
-    makeObservable(this, {
-      show: action,
-      hide: action,
-      toggle: action,
-    });
+   
   }
 
   get visible(): boolean {
