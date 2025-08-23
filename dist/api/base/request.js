@@ -17,7 +17,10 @@ async function request(param) {
     // Add auth token to headers
     const headers = Object.assign({ "Content-Type": (_b = (_a = param.headers) === null || _a === void 0 ? void 0 : _a["Content-Type"]) !== null && _b !== void 0 ? _b : "application/json" }, param.headers);
     const accessToken = await param.getAccessToken();
-    if ((param.requireAuth || param.shouldAuthIfPossile) && accessToken) {
+    if (param.requireAuth && !accessToken) {
+        throw new Error("No access token found");
+    }
+    if (param.shouldAuthIfPossile && accessToken) {
         // Token should be provided by the consuming application
         headers["Authorization"] = `Bearer ${accessToken}`;
     }
