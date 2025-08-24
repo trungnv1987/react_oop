@@ -10,6 +10,13 @@
       "require": "./dist/index.js",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+    "./exts": {
+      "types": "./dist/utils/exts.d.ts",
+      "node": "./dist/utils/exts.js",
+      "require": "./dist/utils/exts.js",
+      "import": "./dist/utils/exts.js",
+      "default": "./dist/utils/exts.js"
     }
   },
   "sideEffects": false,
