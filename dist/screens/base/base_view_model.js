@@ -9,13 +9,16 @@ class BaseViewModel {
         return this.constructor.name;
     }
     viewDidAppear() {
+        this.isViewDidAppear = true;
         console.log(`${this.name} viewDidAppear`);
     }
     viewDidDisappear() {
+        this.isViewDidAppear = false;
         console.log(`${this.name} viewDidDisappear`);
     }
     constructor(props) {
         this.loadingCubit = new cubit_1.UILoadingCubit();
+        this.isViewDidAppear = false;
         this.props = props;
     }
     get loadingController() {

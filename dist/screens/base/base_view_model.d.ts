@@ -10,6 +10,7 @@ export interface BaseViewModelProps {
 export declare class BaseViewModel<P extends BaseViewModelProps> {
     loadingCubit: UILoadingCubit;
     props?: P;
+    isViewDidAppear: boolean;
     get name(): string;
     viewDidAppear(): void;
     viewDidDisappear(): void;

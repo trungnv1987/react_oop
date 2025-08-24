@@ -13,16 +13,19 @@ export interface BaseViewModelProps {}
 export class BaseViewModel<P extends BaseViewModelProps> {
   loadingCubit = new UILoadingCubit();
   props?: P;
+  isViewDidAppear = false;
 
   get name(): string {
     return this.constructor.name;
   }
 
   viewDidAppear() {
+    this.isViewDidAppear = true;
     console.log(`${this.name} viewDidAppear`);
   }
 
   viewDidDisappear() {
+    this.isViewDidAppear = false;
     console.log(`${this.name} viewDidDisappear`);
   }
 
