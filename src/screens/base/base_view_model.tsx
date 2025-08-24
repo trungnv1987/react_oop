@@ -14,6 +14,18 @@ export class BaseViewModel<P extends BaseViewModelProps> {
   loadingCubit = new UILoadingCubit();
   props?: P;
 
+  get name(): string {
+    return this.constructor.name;
+  }
+
+  viewDidAppear() {
+    console.log(`${this.name} viewDidAppear`);
+  }
+
+  viewDidDisappear() {
+    console.log(`${this.name} viewDidDisappear`);
+  }
+
   constructor(props?: P) {
     this.props = props;
   }

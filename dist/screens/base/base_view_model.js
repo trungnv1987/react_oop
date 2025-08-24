@@ -5,6 +5,15 @@ const cubit_1 = require("../../bloc/cubit");
 const log_util_1 = require("../../utils/log/log_util");
 const request_1 = require("../../api/base/request");
 class BaseViewModel {
+    get name() {
+        return this.constructor.name;
+    }
+    viewDidAppear() {
+        console.log(`${this.name} viewDidAppear`);
+    }
+    viewDidDisappear() {
+        console.log(`${this.name} viewDidDisappear`);
+    }
     constructor(props) {
         this.loadingCubit = new cubit_1.UILoadingCubit();
         this.props = props;
