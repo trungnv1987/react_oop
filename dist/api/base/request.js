@@ -20,7 +20,7 @@ async function request(param) {
     if (param.requireAuth && !accessToken) {
         throw new Error("No access token found");
     }
-    if (param.shouldAuthIfPossile && accessToken) {
+    if (param.requireAuth || (param.shouldAuthIfPossile && accessToken)) {
         // Token should be provided by the consuming application
         headers["Authorization"] = `Bearer ${accessToken}`;
     }
