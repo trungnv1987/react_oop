@@ -21,7 +21,7 @@ export type ConstructorCallback<T> = new (...args: any[]) => T;
 
 
 export function useDebounce<T extends (...args: any[]) => void>(func: T, delay: number) {
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null);
 
   return useCallback(
     (...args: Parameters<T>) => {

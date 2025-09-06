@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useDebounce = useDebounce;
 const react_1 = require("react");
 function useDebounce(func, delay) {
-    const timeoutRef = (0, react_1.useRef)();
+    const timeoutRef = (0, react_1.useRef)(null);
     return (0, react_1.useCallback)((...args) => {
         if (timeoutRef.current)
             clearTimeout(timeoutRef.current);
