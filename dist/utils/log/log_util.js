@@ -2,14 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LogUtil = void 0;
 class LogUtil {
-    static debug(message) {
-        console.debug(message);
+    static debug(message, ...args) {
+        console.debug(message, ...args);
     }
-    static error(message) {
-        console.error(message);
+    static error(message, ...args) {
+        console.error(message, ...args);
     }
-    static info(message) {
-        console.info(message);
+    static info(message, ...args) {
+        console.info(message, ...args);
     }
 }
 exports.LogUtil = LogUtil;

@@ -1,14 +1,14 @@
 export class LogUtil {
-  static debug(message: string) {
-    console.debug(message);
+  static debug(message: string, ...args: any[]) {
+    console.debug(message, ...args);
   }
 
-  static error(message: string) {
-    console.error(message);
+  static error(message: string, ...args: any[]) {
+    console.error(message, ...args);
   }
 
-  static info(message: string) {
-    console.info(message);
+  static info(message: string, ...args: any[]) {
+    console.info(message, ...args);
   }
 
   static sum = (a: number, b: number) => a + b;
