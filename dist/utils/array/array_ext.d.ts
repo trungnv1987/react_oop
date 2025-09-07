@@ -11,6 +11,9 @@ declare global {
         removeWhere(predicate: (item: T) => boolean): T[];
         nullIfEmpty(): T[] | undefined;
         clear(): void;
+        selectItem(item: T | null | undefined, options?: {
+            isSingle?: boolean;
+        }): void;
     }
 }
 //# sourceMappingURL=array_ext.d.ts.map

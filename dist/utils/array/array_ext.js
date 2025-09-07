@@ -33,3 +33,27 @@ Array.prototype.firstOrNull = function (predicate) {
 Array.prototype.last = function () {
     return this.length > 0 ? this[this.length - 1] : undefined;
 };
+Array.prototype.selectItem = function (item, options = {}) {
+    const { isSingle = true } = options;
+    if (item == null)
+        return;
+    if (isSingle) {
+        if (this.includes(item)) {
+            const index = this.indexOf(item);
+            this.splice(index, 1);
+        }
+        else {
+            this.clear();
+            this.push(item);
+        }
+    }
+    else {
+        if (this.includes(item)) {
+            const index = this.indexOf(item);
+            this.splice(index, 1);
+        }
+        else {
+            this.push(item);
+        }
+    }
+};

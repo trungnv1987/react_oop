@@ -16,6 +16,7 @@ declare global {
 
     nullIfEmpty(): T[] | undefined;
     clear(): void;
+    selectItem(item: T | null | undefined, options?: { isSingle?: boolean }): void;
   }
 }
 
@@ -64,4 +65,31 @@ Array.prototype.firstOrNull = function <T>(
 
 Array.prototype.last = function <T>(): T | undefined {
   return this.length > 0 ? this[this.length - 1] : undefined;
+};
+
+Array.prototype.selectItem = function <T>(
+  this: T[],
+  item: T | null | undefined,
+  options: { isSingle?: boolean } = {}
+): void {
+  const { isSingle = true } = options;
+  
+  if (item == null) return;
+  
+  if (isSingle) {
+    if (this.includes(item)) {
+      const index = this.indexOf(item);
+      this.splice(index, 1);
+    } else {
+      this.clear();
+      this.push(item);
+    }
+  } else {
+    if (this.includes(item)) {
+      const index = this.indexOf(item);
+      this.splice(index, 1);
+    } else {
+      this.push(item);
+    }
+  }
 };
