@@ -15,7 +15,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./api/base/api_param"), exports);
-__exportStar(require("./api/base/request"), exports);
+__exportStar(require("./api/base/request_api"), exports);
 __exportStar(require("./bloc/cubit"), exports);
 __exportStar(require("./callbacks/callbacks"), exports);
 __exportStar(require("./emitter/emitter"), exports);

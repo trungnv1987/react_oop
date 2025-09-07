@@ -1,7 +1,7 @@
 import { LogUtil } from "../../utils/log/log_util";
 import { ApiMethod, ApiParam } from "./api_param";
 
-export async function request<T>(param: ApiParam<T>): Promise<T | undefined> {
+export async function requestApi<T>(param: ApiParam<T>): Promise<T | undefined> {
   const url = param.toUrl();
   const method = param.method;
   let body;

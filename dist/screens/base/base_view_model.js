@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseViewModel = void 0;
 const cubit_1 = require("../../bloc/cubit");
 const log_util_1 = require("../../utils/log/log_util");
-const request_1 = require("../../api/base/request");
+const request_api_1 = require("../../api/base/request_api");
 class BaseViewModel {
     get name() {
         return this.constructor.name;
@@ -45,7 +45,7 @@ class BaseViewModel {
         }
         let result;
         try {
-            result = await (0, request_1.request)(param);
+            result = await (0, request_api_1.requestApi)(param);
         }
         catch (error) { }
         if (!param.isSuccess) {
