@@ -1,4 +1,4 @@
-import { CSSProperties, RefObject } from "react";
+import { CSSProperties, ReactNode, RefObject } from "react";
 export declare enum UIScreenType {
     mobile = "mobile",
     desktop = "desktop"
@@ -26,5 +26,11 @@ export interface UIComponentProps {
     isItemsCenter?: boolean;
     isJustifyCenter?: boolean;
     isTextCenter?: boolean;
+}
+export type ItemBuilder<T> = (item: T) => ReactNode;
+export declare enum ReloadState {
+    normal = "normal",
+    refreshing = "refreshing",
+    loadingMore = "loadingMore"
 }
 //# sourceMappingURL=ui_enums.d.ts.map

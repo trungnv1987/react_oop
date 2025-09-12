@@ -11,3 +11,6 @@ dev:
 
 screen:
 	sh ./scripts/create_screen.sh create
+
+check:
+	npx tsc --noEmit
