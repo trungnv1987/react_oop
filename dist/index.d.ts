@@ -10,4 +10,5 @@ export * from "./controllers/index";
 export * from "./enums/index";
 export * from "./types/index";
 export * from "./lang/index";
+export * from "./storage/index";
 //# sourceMappingURL=index.d.ts.map
