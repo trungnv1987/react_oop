@@ -8,4 +8,5 @@ export * from "./screens";
 export * from "./utils";
 export * from "./controllers/index";
 export * from "./enums/index";
+export * from "./types/index";
 //# sourceMappingURL=index.d.ts.map

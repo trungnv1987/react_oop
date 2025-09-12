@@ -19,7 +19,5 @@ export * from "./utils";
 export * from "./controllers/index";
 export * from "./enums/index";
 
+export * from "./types/index";
 
-// export * from "./screens/sample/sample_screen";
-// export * from "./screens/sample/view_model/sample_view_model";
-// export * from "./screens/sample/components/sample_main_view";
