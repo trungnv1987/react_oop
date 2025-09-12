@@ -21,3 +21,4 @@ export * from "./enums/index";
 
 export * from "./types/index";
 
+export * from "./lang/index";
