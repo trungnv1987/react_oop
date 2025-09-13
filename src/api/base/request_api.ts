@@ -16,10 +16,14 @@ export async function requestApi<T>(param: ApiParam<T>): Promise<T | undefined> 
     "Content-Type": param.headers?.["Content-Type"] ?? "application/json",
     ...param.headers,
   };
+  LogUtil.info(`request_params ${JSON.stringify(param)}`);
   const accessToken = await param.getAccessToken();
   if (param.requireAuth && !accessToken) {
+    LogUtil.error(`No access token found`);
     throw new Error("No access token found");
   }
+  
+
   if (param.requireAuth || ( param.shouldAuthIfPossile && accessToken)) {
     // Token should be provided by the consuming application
     headers["Authorization"] = `Bearer ${accessToken}`;
@@ -75,7 +79,7 @@ export async function requestApi<T>(param: ApiParam<T>): Promise<T | undefined> 
 
     const result = param.parser(json);
     if (param.method == ApiMethod.post) {
-      LogUtil.debug(`request_result ${JSON.stringify(json)}`);
+      LogUtil.info(`request_result ${JSON.stringify(json)}`);
     }
     await param.onDone(result);
     if (param.message && param.showErrorMessage == true) {

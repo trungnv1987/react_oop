@@ -16,8 +16,10 @@ async function requestApi(param) {
     }
     // Add auth token to headers
     const headers = Object.assign({ "Content-Type": (_b = (_a = param.headers) === null || _a === void 0 ? void 0 : _a["Content-Type"]) !== null && _b !== void 0 ? _b : "application/json" }, param.headers);
+    log_util_1.LogUtil.info(`request_params ${JSON.stringify(param)}`);
     const accessToken = await param.getAccessToken();
     if (param.requireAuth && !accessToken) {
+        log_util_1.LogUtil.error(`No access token found`);
         throw new Error("No access token found");
     }
     if (param.requireAuth || (param.shouldAuthIfPossile && accessToken)) {
@@ -64,7 +66,7 @@ async function requestApi(param) {
         }
         const result = param.parser(json);
         if (param.method == api_param_1.ApiMethod.post) {
-            log_util_1.LogUtil.debug(`request_result ${JSON.stringify(json)}`);
+            log_util_1.LogUtil.info(`request_result ${JSON.stringify(json)}`);
         }
         await param.onDone(result);
         if (param.message && param.showErrorMessage == true) {
