@@ -23,3 +23,4 @@ export * from "./types/index";
 
 export * from "./lang/index";
 export * from "./storage/index";
+export * from "./components/index";
