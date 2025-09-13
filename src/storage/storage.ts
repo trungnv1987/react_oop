@@ -1,4 +1,3 @@
-import { LogUtil } from "../utils/log/log_util";
 
 // storage.ts
 type Value = string;
@@ -16,39 +15,64 @@ export class AppStorage {
   private static _secureStorage: AppStorageInterface;
   private static _localStorage: AppStorageInterface;
   static async init({secureStorage, localStorage}: {secureStorage: AppStorageInterface, localStorage: AppStorageInterface}) {
-    this._secureStorage = secureStorage;
-    this._localStorage = localStorage;
+    try {
+      this._secureStorage = secureStorage;
+      this._localStorage = localStorage;
+    } catch (error) {
+      console.error('AppStorage.init failed:', error);
+      throw error;
+    }
   }
 
   static async getItem(key: string,{isSecure}: {isSecure?: boolean} = {}): Promise<Value | null> {
-    if (isSecure) {
-      return this._secureStorage.getItem(key);
-    } else {
-      return this._localStorage.getItem(key);
+    try {
+      if (isSecure) {
+        return await this._secureStorage.getItem(key);
+      } else {
+        return await this._localStorage.getItem(key);
+      }
+    } catch (error) {
+      console.error('AppStorage.getItem failed:', error);
+      return null;
     }
   } 
 
   static async setItem(key: string, value: Value, {isSecure}: {isSecure?: boolean} = {}): Promise<void> {
-    if (isSecure) {
-      return this._secureStorage.setItem(key, value);
-    } else {
-      return this._localStorage.setItem(key, value);
+    try {
+      if (isSecure) {
+        await this._secureStorage.setItem(key, value);
+      } else {
+        await this._localStorage.setItem(key, value);
+      }
+    } catch (error) {
+      console.error('AppStorage.setItem failed:', error);
+      throw error;
     }
   }
 
   static async removeItem(key: string, {isSecure}: {isSecure?: boolean} = {}): Promise<void> {
-    if (isSecure) {
-      return this._secureStorage.removeItem(key);
-    } else {
-      return this._localStorage.removeItem(key);
+    try {
+      if (isSecure) {
+        await this._secureStorage.removeItem(key);
+      } else {
+        await this._localStorage.removeItem(key);
+      }
+    } catch (error) {
+      console.error('AppStorage.removeItem failed:', error);
+      throw error;
     }
   }
 
   static async clear({isSecure}: {isSecure?: boolean} = {}): Promise<void> {
-    if (isSecure) {
-      return this._secureStorage.clear();
-    } else {
-      return this._localStorage.clear();
+    try {
+      if (isSecure) {
+        await this._secureStorage.clear();
+      } else {
+        await this._localStorage.clear();
+      }
+    } catch (error) {
+      console.error('AppStorage.clear failed:', error);
+      throw error;
     }
   }
 

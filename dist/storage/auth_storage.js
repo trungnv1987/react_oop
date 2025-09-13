@@ -6,17 +6,17 @@ const storage_1 = require("./storage");
 const _kCredential = "credential";
 class AuthStorage {
     static async saveCredential(response) {
-        await storage_1.AppStorage.setItem(_kCredential, JSON.stringify(response.toJson()));
+        await storage_1.AppStorage.setItem(_kCredential, JSON.stringify(response.toJson()), { isSecure: true });
     }
     static async getAccessToken() {
-        const rawData = await storage_1.AppStorage.getItem(_kCredential);
+        const rawData = await storage_1.AppStorage.getItem(_kCredential, { isSecure: true });
         if (!rawData)
             return undefined;
         const credential = _auth_1.LoginCredential.fromJson(JSON.parse(rawData));
         return credential === null || credential === void 0 ? void 0 : credential.access_token;
     }
     static async getRefreshToken() {
-        const rawData = await storage_1.AppStorage.getItem(_kCredential);
+        const rawData = await storage_1.AppStorage.getItem(_kCredential, { isSecure: true });
         if (!rawData)
             return undefined;
         const credential = _auth_1.LoginCredential.fromJson(JSON.parse(rawData));

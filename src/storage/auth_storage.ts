@@ -5,11 +5,11 @@ const _kCredential = "credential";
 
 export class AuthStorage {
   static async saveCredential(response: LoginCredential): Promise<void> {
-    await AppStorage.setItem(_kCredential, JSON.stringify(response.toJson()));
+    await AppStorage.setItem(_kCredential, JSON.stringify(response.toJson()), {isSecure: true});
   }
 
   static async getAccessToken(): Promise<string | undefined> {
-    const rawData = await AppStorage.getItem(_kCredential);
+    const rawData = await AppStorage.getItem(_kCredential, {isSecure: true});
     if (!rawData) return undefined;
     
     const credential = LoginCredential.fromJson(JSON.parse(rawData));
@@ -17,7 +17,7 @@ export class AuthStorage {
   }
 
   static async getRefreshToken(): Promise<string | undefined> {
-    const rawData = await AppStorage.getItem(_kCredential);
+    const rawData = await AppStorage.getItem(_kCredential, {isSecure: true});
     if (!rawData) return undefined;
     
     const credential = LoginCredential.fromJson(JSON.parse(rawData));
