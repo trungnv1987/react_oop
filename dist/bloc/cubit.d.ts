@@ -11,8 +11,8 @@ export declare class GenericCubit<T> implements _GenericCubit<T> {
     callbacks: GenericCallback<T>[];
     constructor(value?: T);
     update(value?: T): void;
-    addCallback(callback: VoidFunction): void;
-    removeCallback(callback: VoidFunction): void;
+    addCallback(callback: GenericCallback<T>): void;
+    removeCallback(callback: GenericCallback<T>): void;
     dispose(): void;
 }
 export declare class ReloadCubit extends GenericCubit<number> {

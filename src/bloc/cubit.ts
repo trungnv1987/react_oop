@@ -30,11 +30,11 @@ export class GenericCubit<T> implements _GenericCubit<T> {
     }
   }
 
-  addCallback(callback: VoidFunction) {
+  addCallback(callback: GenericCallback<T>) {
     this.callbacks.push(callback);
   }
 
-  removeCallback(callback: VoidFunction) {
+  removeCallback(callback: GenericCallback<T>) {
     this.callbacks = this.callbacks.filter((c) => c !== callback);
   }
 
