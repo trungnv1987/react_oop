@@ -94,7 +94,7 @@ export  class LoadMoreController<T> extends BaseController implements _LoadMoreC
   }
 
   get searchKeyword(): string | undefined {
-    return this._searchData.keyword;
+    return this.isSearching ? this._searchData.keyword : undefined;
   }
   
 }
