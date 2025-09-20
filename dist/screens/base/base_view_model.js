@@ -8,11 +8,11 @@ class BaseViewModel {
     get name() {
         return this.constructor.name;
     }
-    viewDidAppear() {
+    viewDidAppear(isCreated) {
         this.isViewDidAppear = true;
         console.log(`${this.name} viewDidAppear`);
     }
-    viewDidDisappear() {
+    viewDidDisappear(isDismissed) {
         this.isViewDidAppear = false;
         console.log(`${this.name} viewDidDisappear`);
     }

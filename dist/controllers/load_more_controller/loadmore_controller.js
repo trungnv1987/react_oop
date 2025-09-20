@@ -65,7 +65,7 @@ class LoadMoreController extends base_controller_1.BaseController {
         return this.isSearching ? this._searchData : this._allData;
     }
     get searchKeyword() {
-        return this._searchData.keyword;
+        return this.isSearching ? this._searchData.keyword : undefined;
     }
 }
 exports.LoadMoreController = LoadMoreController;

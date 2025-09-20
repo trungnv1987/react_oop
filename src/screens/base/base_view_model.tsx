@@ -19,12 +19,12 @@ export class BaseViewModel<P extends BaseViewModelProps> {
     return this.constructor.name;
   }
 
-  viewDidAppear() {
+  viewDidAppear(isCreated: boolean) {
     this.isViewDidAppear = true;
     console.log(`${this.name} viewDidAppear`);
   }
 
-  viewDidDisappear() {
+  viewDidDisappear(isDismissed: boolean) {
     this.isViewDidAppear = false;
     console.log(`${this.name} viewDidDisappear`);
   }

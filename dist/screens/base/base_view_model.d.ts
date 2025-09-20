@@ -12,8 +12,8 @@ export declare class BaseViewModel<P extends BaseViewModelProps> {
     props?: P;
     isViewDidAppear: boolean;
     get name(): string;
-    viewDidAppear(): void;
-    viewDidDisappear(): void;
+    viewDidAppear(isCreated: boolean): void;
+    viewDidDisappear(isDismissed: boolean): void;
     constructor(props?: P);
     get loadingController(): UILoadingCubit;
     showLoading(): void;
