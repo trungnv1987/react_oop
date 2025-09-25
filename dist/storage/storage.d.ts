@@ -1,5 +1,5 @@
 type Value = string;
-interface AppStorageInterface {
+export interface AppStorageInterface {
     getItem(key: string): Promise<Value | null>;
     setItem(key: string, value: Value): Promise<void>;
     removeItem(key: string): Promise<void>;

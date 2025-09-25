@@ -21,12 +21,12 @@ export class BaseViewModel<P extends BaseViewModelProps> {
 
   viewDidAppear(isCreated: boolean) {
     this.isViewDidAppear = true;
-    console.log(`${this.name} viewDidAppear isCreated ${isCreated}`);
+    console.log(`${this.name} viewDidAppear isCreated: ${isCreated}`);
   }
 
   viewDidDisappear(isDismissed: boolean) {
     this.isViewDidAppear = false;
-    console.log(`${this.name} viewDidDisappear ${isDismissed}`);
+    console.log(`${this.name} viewDidDisappear isDismissed: ${isDismissed}`);
   }
 
   constructor(props?: P) {

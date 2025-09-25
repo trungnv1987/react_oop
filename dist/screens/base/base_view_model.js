@@ -10,11 +10,11 @@ class BaseViewModel {
     }
     viewDidAppear(isCreated) {
         this.isViewDidAppear = true;
-        console.log(`${this.name} viewDidAppear isCreated ${isCreated}`);
+        console.log(`${this.name} viewDidAppear isCreated: ${isCreated}`);
     }
     viewDidDisappear(isDismissed) {
         this.isViewDidAppear = false;
-        console.log(`${this.name} viewDidDisappear ${isDismissed}`);
+        console.log(`${this.name} viewDidDisappear isDismissed: ${isDismissed}`);
     }
     constructor(props) {
         this.loadingCubit = new cubit_1.UILoadingCubit();
