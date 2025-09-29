@@ -57,26 +57,25 @@ export type LoadMoreRequest<T> = (
       this._ended = false;
       this._state = state;
       if(state == ReloadState.refreshing){      
-        this.items.clear();      
+        this.items = items;
       }else if(state == ReloadState.loadingMore){
         if(items.length <= this.limit){
           this._ended = true;
         }        
+        this.items = [...this.items, ...items];
       }
 
-        this.items.push(...items);
-    
       LogUtil.debug(`setItems: ${this.items.length}`);            
     }
     
     clear(){
       this.items.clear();
+      this.keyword = undefined;
       this.total = undefined;
     }
 
     dispose(): void {
-      this.items.clear();
-      this.total = undefined;
+      this.clear();
     }
 
 

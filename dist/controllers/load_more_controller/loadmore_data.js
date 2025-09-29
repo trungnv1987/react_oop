@@ -43,23 +43,23 @@ class LoadMoreData {
         this._ended = false;
         this._state = state;
         if (state == ui_enums_1.ReloadState.refreshing) {
-            this.items.clear();
+            this.items = items;
         }
         else if (state == ui_enums_1.ReloadState.loadingMore) {
             if (items.length <= this.limit) {
                 this._ended = true;
             }
+            this.items = [...this.items, ...items];
         }
-        this.items.push(...items);
         log_util_1.LogUtil.debug(`setItems: ${this.items.length}`);
     }
     clear() {
         this.items.clear();
+        this.keyword = undefined;
         this.total = undefined;
     }
     dispose() {
-        this.items.clear();
-        this.total = undefined;
+        this.clear();
     }
 }
 exports.LoadMoreData = LoadMoreData;
