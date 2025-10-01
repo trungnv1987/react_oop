@@ -54,12 +54,12 @@ class LoadMoreController extends base_controller_1.BaseController {
     }
     setSearching(isSearching) {
         this.isSearching = isSearching;
-        if (!isSearching) {
-            this._searchData.clear();
+        if (isSearching) {
+            // fetch default data on begin searching
+            this._fetch({ clear: true });
+            return;
         }
-        else {
-            this._searchData.setItems({ items: this._allData.items, state: ui_enums_1.ReloadState.refreshing });
-        }
+        this._searchData.clear();
         this._reload({ state: ui_enums_1.ReloadState.normal });
     }
     _reload({ state }) {
