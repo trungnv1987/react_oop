@@ -12,6 +12,7 @@ interface _LoadMoreController<T> {
   setItems ({items, reload, clear}: {items: T[], reload?: boolean, clear?: boolean}):void;  
 
   setSearching(isSearching: boolean): void;
+  toggleSearching(): void;
   search(text?: string): Promise<void>;
   get searchKeyword(): string|undefined;
   get data(): LoadMoreData<T>;
@@ -76,8 +77,15 @@ export  class LoadMoreController<T> extends BaseController implements _LoadMoreC
   async request<T>(param: ApiParam<T>): Promise<T | undefined> {
     return requestApi(param);
   }
+  toggleSearching(): void {
+    this.setSearching(!this.isSearching);
+  }
+
   setSearching(isSearching: boolean): void {
     this.isSearching = isSearching;
+    if(!isSearching){
+      this._searchData.clear();
+    }
     this._reload({state: ReloadState.normal});
   }
 

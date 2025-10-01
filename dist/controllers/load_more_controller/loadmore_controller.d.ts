@@ -12,6 +12,7 @@ interface _LoadMoreController<T> {
         clear?: boolean;
     }): void;
     setSearching(isSearching: boolean): void;
+    toggleSearching(): void;
     search(text?: string): Promise<void>;
     get searchKeyword(): string | undefined;
     get data(): LoadMoreData<T>;
@@ -39,6 +40,7 @@ export declare class LoadMoreController<T> extends BaseController implements _Lo
     }): Promise<void>;
     loadMore(): Promise<void>;
     request<T>(param: ApiParam<T>): Promise<T | undefined>;
+    toggleSearching(): void;
     setSearching(isSearching: boolean): void;
     _reload({ state }: {
         state: ReloadState;

@@ -11,5 +11,5 @@ function BaseScreen({ children, viewModel, viewModelContext, }) {
             viewModel.dispose();
         };
     }, []);
-    return ((0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, { children: (0, jsx_runtime_1.jsx)(viewModelContext.Provider, { value: viewModel, children: children }) }));
+    return ((0, jsx_runtime_1.jsx)(viewModelContext.Provider, { value: viewModel, children: children }));
 }

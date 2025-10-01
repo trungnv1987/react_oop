@@ -49,8 +49,14 @@ class LoadMoreController extends base_controller_1.BaseController {
     async request(param) {
         return (0, request_api_1.requestApi)(param);
     }
+    toggleSearching() {
+        this.setSearching(!this.isSearching);
+    }
     setSearching(isSearching) {
         this.isSearching = isSearching;
+        if (!isSearching) {
+            this._searchData.clear();
+        }
         this._reload({ state: ui_enums_1.ReloadState.normal });
     }
     _reload({ state }) {

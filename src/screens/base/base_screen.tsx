@@ -21,10 +21,8 @@ export function BaseScreen<VM extends BaseViewModel<any>>({
     };
   }, []);
   return (
-    <>
-      <viewModelContext.Provider value={viewModel}>
-        {children}
-      </viewModelContext.Provider>
-    </>
+    <viewModelContext.Provider value={viewModel}>
+      {children}
+    </viewModelContext.Provider>
   );
 }
