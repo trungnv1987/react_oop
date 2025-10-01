@@ -85,6 +85,8 @@ export  class LoadMoreController<T> extends BaseController implements _LoadMoreC
     this.isSearching = isSearching;
     if(!isSearching){
       this._searchData.clear();
+    }else {
+      this._searchData.setItems({items: this._allData.items, state: ReloadState.normal});
     }
     this._reload({state: ReloadState.normal});
   }
