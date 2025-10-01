@@ -58,7 +58,7 @@ class LoadMoreController extends base_controller_1.BaseController {
             this._searchData.clear();
         }
         else {
-            this._searchData.setItems({ items: this._allData.items, state: ui_enums_1.ReloadState.normal });
+            this._searchData.setItems({ items: this._allData.items, state: ui_enums_1.ReloadState.refreshing });
         }
         this._reload({ state: ui_enums_1.ReloadState.normal });
     }

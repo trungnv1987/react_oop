@@ -51,7 +51,7 @@ class LoadMoreData {
             }
             this.items = [...this.items, ...items];
         }
-        log_util_1.LogUtil.debug(`setItems: ${this.items.length}`);
+        log_util_1.LogUtil.debug(`setItems: ${this.items.length} isSearching: ${this.isSearching}`);
     }
     clear() {
         this.items.clear();

@@ -65,7 +65,7 @@ export type LoadMoreRequest<T> = (
         this.items = [...this.items, ...items];
       }
 
-      LogUtil.debug(`setItems: ${this.items.length}`);            
+      LogUtil.debug(`setItems: ${this.items.length} isSearching: ${this.isSearching}`);            
     }
     
     clear(){
