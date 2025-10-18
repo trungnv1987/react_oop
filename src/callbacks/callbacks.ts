@@ -16,6 +16,7 @@ export type GenericGetter<T> = () => T | undefined;
 export type StringCallback = (text?: string) => void;
 
 export type VoidCallback = () => void;
+export type PromiseVoidCallback = () => Promise<void>;
 
 export type ConstructorCallback<T> = new (...args: any[]) => T;
 
